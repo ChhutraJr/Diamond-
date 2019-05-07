@@ -1,0 +1,413 @@
+﻿
+@{
+    ViewBag.Title = "MonthDefinition";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<script src="~/Content/MyJquery.js"></script>
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<script src="~/Content/Jquery.js"></script>
+<h4>Month Definition</h4>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-12 div-Sm-Magin">
+            <div class="divTblHeight220">
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr class="row-highlight">
+                            <th style="display:none">ID</th>
+                            <th>Month</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Total Working Days</th>
+                            <th>Total Working Hours</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list_month" style="cursor:pointer">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label>Month Detail</label>
+                </div>
+                <div class="panel-body" id="input_type">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-4 control-label">Month</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" id="month" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-4 control-label">Start Date</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" id="start_date" type="date">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-4 control-label">End Date</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" id="end_date" type="date">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-4 control-label">Allow Calculate</label>
+                                <div class="col-sm-7">
+                                    <input type="checkbox" id="chkallow" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-4 control-label">Total Working Days</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" id="total_workday" type="number">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-4 control-label">Total Working Hours</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" id="total_workhour" type="number">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-4 control-label">Original Total Work Hours</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control input-sm" id="original" type="number">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer divPadR0">
+                    <button type="button" class="btn btn-primary" id="btnNew" value="1"><i class="glyphicon glyphicon-file"></i> New (F2)</button>
+                    <button type="button" class="btn btn-primary" id="btnEdit" value="1"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+                    <button type="button" class="btn btn-primary" id="btnDelete" data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+                    @*<button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Save (Enter)</button>*@
+                    <button type="reset" class="btn btn-primary" id="btnCancel"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+                    <button type="button" class="btn btn-primary" id="btnRefresh"><i class="glyphicon glyphicon-refresh"></i> Refresh (F5)</button>
+                    <button type="button" class="btn btn-primary" id="btnExit" data-toggle="modal" data-target="#exit"><i class="glyphicon glyphicon-off"></i> Exit (Alt+F4)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exit" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Exit Form</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to Exit?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="Exit" data-dismiss="modal">Exit</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="delete" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Delete Form</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to delete?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="Delete" data-dismiss="modal">Exit</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function Disabled_Button()
+    {
+        $("#btnEdit").prop("disabled", true);
+        $("#btnDelete").prop("disabled", true);
+        $("#btnSearch").prop("disabled", true);
+        $("#btnCancel").prop("disabled", true);
+    }
+    function Disabled_Input()
+    {
+        $("#input_type input").prop("disabled", true);
+    }
+    function Enabled_Input()
+    {
+        $("#input_type input").prop("disabled", false);
+    }
+    function Clear_Input() {
+        $("#input_type input").val('');
+        $('input[type=checkbox]').attr('checked', false);
+    }
+    function SeletedRow() {
+        $(document).on("click", "#list_month tr", function () {
+            $('#list_month tr').css("background-color", "transparent");
+            $(this).css("background-color", "#61aef7");
+            var mId = $(this).data("mid");
+            var mName = $(this).data("mname");
+            var startDate = $(this).data("start");
+            var endDate = $(this).data("end");
+            var allowCalculate = $(this).data("allow");
+            var totalWorkDay = $(this).data("tworkday");
+            var totalWorkHour = $(this).data("tworkhour");
+            var originalTotalHour = $(this).data("original");
+
+            $("#btnEdit").prop("disabled", false);
+            $("#btnDelete").prop("disabled", false);
+            $("#btnEdit").data("mid", mId);
+            $("#Delete").data("mid", mId);
+            $("#btnCancel").prop("disabled", false);
+
+            $("#month").val(mName);
+            $("#start_date").val(startDate);
+            $("#end_date").val(endDate);
+            if (allowCalculate == 1) {
+                $("#chkallow").prop("checked", true);
+            } else {
+                $("#chkallow").prop("checked", false);
+            }
+            $("#total_workday").val(totalWorkDay);
+            $("#total_workhour").val(totalWorkHour);
+            $("#original").val(originalTotalHour);
+            
+        });
+    }
+    function Load_Months()
+    {
+        $.ajax({
+            url: "/Company/Load_Months",
+            datatype: "JSON",
+            type: "POST",
+            success: function (result) {
+                var arrdata = JsonArraySpliter(result);
+                for (var i = 0; i < arrdata.length; i++) {
+                    $("#list_month").append("<tr data-mid='" + arrdata[i].monthID + "'" +
+                                            "data-mname='" + arrdata[i].monthName + "'" +
+                                            "data-start='" + DisplayDate(arrdata[i].startDate) + "'" +
+                                            "data-end='" + DisplayDate(arrdata[i].endDate) + "'" +
+                                            "data-allow='" + arrdata[i].allowCalculation + "'" +
+                                            "data-tworkday='" + arrdata[i].totalWorkingDay + "'" +
+                                            "data-tworkhour='" + arrdata[i].totalWorkingHour + "'" +
+                                            "data-original='" + arrdata[i].originalTotalWorkHour + "'" +
+
+                                     "><td style='display:none'>" + arrdata[i].monthID +
+                                                    "<td>" + arrdata[i].monthName + "</td>" +
+                                                    "<td>" + DisplayDate(arrdata[i].startDate) + "</td>" +
+                                                    "<td>" + DisplayDate(arrdata[i].endDate) + "</td>" +
+                                                    "<td>" + arrdata[i].totalWorkingDay + "</td>" +
+                                                    "<td>" + arrdata[i].totalWorkingHour + "</td>" +
+
+                                            "</td></tr>");
+                }
+            }
+        });
+    }
+ 
+</script>
+<script>
+    $(document).ready(function () {
+        Disabled_Button();
+        Disabled_Input();
+        Load_Months();
+        SeletedRow();
+       
+        $("#btnNew").click(function () {
+            if ($(this).val() == 1) {
+                $("#chkallow").prop("disabled", false);
+                $(this).val(0);
+                $(this).text('').append('<i class="glyphicon glyphicon-save"></i>' + 'Save(Enter)');
+                $("#btnCancel").prop("disabled", false);
+                $("#btnEdit").prop("disabled", true);
+                $("#btnDelete").prop("disabled", true);
+                $("#btnExit").prop("disabled", true);
+                $('#list_month tr').css("background-color", "transparent");
+                $('#list_month tr').prop("disabled", true);
+                $.ajax({
+                    url: "/Company/CheckRow",
+                    datatype: "JSON",
+                    type: "POST",
+                    success: function (result) {
+                        monthname = MyDisplayDate(result);//current date from db
+                        var currentDate = new Date();
+                        if (monthname == MyDisplayDate(currentDate)) {
+                           
+                            var monthname = new Date();
+                            month = (monthname.getMonth()) + 1;
+                            month_as_string = (getStringMonth((monthname.getMonth()) + 1));//month as string from current date in db
+                            year = monthname.getFullYear();//get year from current date from db
+
+                            var txtMonth = month_as_string + "-" + year;
+                            var txtStart = FirstDayOfMonth(year, month);
+                            var txtEnd = LastDayOfMonth(year, month);
+                            var sun = CountSundayInMonth(year, month); //count sunday in month
+                            var day = new Date(txtEnd);
+                            var totalDay = day.getDate();
+
+                            var monthName = $("#month").val(txtMonth);
+                            var startDate = $("#start_date").val(txtStart);
+                            var endDate = $("#end_date").val(txtEnd);
+                           
+                            var totalWorkDay = $("#total_workday").val(totalDay - sun);
+                            var totalWorkHour = $("#total_workhour").val((totalDay - sun) * 8);
+                            var originalWorkHour = $("#original").val((totalDay - sun) * 8);
+                        }
+                        else {
+                            
+                            pre_endDate = MyDisplayDate(result);
+                            var pre_endDate = new Date(result);
+                            thismonth = (pre_endDate.getMonth()) + 2;
+                            if (thismonth <= 12) {
+                                thismonth_as_string = (getStringMonth(thismonth));
+                                year = pre_endDate.getFullYear();
+                                
+                            } else {
+                                thismonth = 1;
+                                thismonth_as_string = (getStringMonth(thismonth));
+                                year = (pre_endDate.getFullYear()) + 1;
+                            }
+                            var txtMonth = thismonth_as_string + "-" + year;
+                            var txtStart = FirstDayOfMonth(year, thismonth);
+                            var txtEnd = LastDayOfMonth(year, thismonth);
+                            var sun = CountSundayInMonth(year, thismonth);
+                            var day = new Date(txtEnd);
+                            var totalDay = day.getDate();
+                            var monthName = $("#month").val(txtMonth);
+                            var startDate = $("#start_date").val(txtStart);
+                            var endDate = $("#end_date").val(txtEnd);
+
+                            var totalWorkDay = $("#total_workday").val(totalDay - sun);
+                            var totalWorkHour = $("#total_workhour").val((totalDay - sun) * 8);
+                            var originalWorkHour = $("#original").val((totalDay - sun) * 8);
+                            
+                        }
+                    }
+                });
+            }
+            else {
+                var monthName = $("#month").val();
+                var startDate = $("#start_date").val();
+                var endDate = $("#end_date").val();
+                var totalWorkDay = $("#total_workday").val();
+                var totalWorkHour = $("#total_workhour").val();
+                var originalWorkHour = $("#original").val();
+                if (isCheckBox($("#chkallow")) == 1)
+               { chkallow = 1; }
+                else { chkallow = 0; }
+                $.ajax({
+                    url: "/Company/Add_Month",
+                    datatype: "JSON",
+                    type: "POST",
+                    data: { monthName, startDate, endDate, chkallow, totalWorkDay, totalWorkHour, originalWorkHour },
+                    success: function (result) {
+                        $("#list_month tr").remove();
+                        //Load_Months();
+                        var arrdata = JsonArraySpliter(result);
+                        for (var i = 0; i < arrdata.length; i++) {
+                            $("#list_month").append("<tr data-mid='" + arrdata[i].monthID + "'" +
+                                   "data-mname='" + arrdata[i].monthName + "'" +
+                                   "data-start='" + DisplayDate(arrdata[i].startDate) + "'" +
+                                   "data-end='" + DisplayDate(arrdata[i].endDate) + "'" +
+                                   "data-allow='" + arrdata[i].allowCalculation + "'" +
+                                   "data-tworkday='" + arrdata[i].totalWorkingDay + "'" +
+                                   "data-tworkhour='" + arrdata[i].totalWorkingHour + "'" +
+                                   "data-original='" + arrdata[i].originalTotalWorkHour + "'" +
+
+                                    "><td style='display:none'>" + arrdata[i].monthID +
+                                      "<td>" + arrdata[i].monthName + "</td>" +
+                                      "<td>" + DisplayDate(arrdata[i].startDate) + "</td>" +
+                                      "<td>" + DisplayDate(arrdata[i].endDate) + "</td>" +
+                                      "<td>" + arrdata[i].totalWorkingDay + "</td>" +
+                                      "<td>" + arrdata[i].totalWorkingHour + "</td>" +
+                                       "</td></tr>");
+                        }
+                        Clear_Input();
+                        $("#btnCancel").prop("disabled", true);
+                        $("#btnNew").val(1);
+                        $("#btnNew").text('').append('<i class="glyphicon glyphicon-file"></i>','New (F2)');
+                    }
+                });
+            }
+        });
+        $("#Exit").click(function () {
+            var url = '@Url.Action("index", "Home")';
+            window.location.href = url;
+        });
+        $("#Delete").click(function () {
+            var id = $(this).data("mid");
+            $.ajax({
+                url: "/Company/Delete_Month",
+                datatype: "JSON",
+                type: "POST",
+                data: { id },
+                success:function(result)
+                {
+                    DeleteRowbyColumnValue($("#list_month tr"), 0, id);
+                    Clear_Input();
+                    $("#btnDelete").prop("disabled", true);
+                    $("#btnEdit").prop("disabled", true);
+                    $("#btnExit").prop("disabled", false);
+                   
+                }
+            });
+
+        });
+        $("#btnRefresh").click(function () {
+            location.reload();
+        });
+        $("#btnCancel").click(function () {
+            $(this).prop("disabled", true);
+            Clear_Input();
+            Disabled_Input();
+            $("#btnExit").prop("disabled", false);
+            $("#btnNew").val(1);
+            $("#btnNew").text('').append('<i class="glyphicon glyphicon-file"></i>', ' New (F2)');
+            $("#btnEdit").prop("disabled", true);
+            $("#btnEdit").val(1);
+            $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>', ' Edit (F3)');
+            $("#btnDelete").prop("disabled", true);
+            $("#list_month tr").prop("disabled", false);
+            $('#list_month tr').css("background-color", "transparent");
+        });
+        $("#btnEdit").click(function () {
+            if($(this).val()==1)
+            {
+                $(this).val(0);
+                $(this).text('').append('<i class="glyphicon glyphicon-edit"></i>', ' Update (F3)');
+                $("#btnExit").prop("disabled", true);
+                $("#list_month tr").prop("disabled", true);
+                $("#btnDelete").prop("disabled", true);
+                $("#btnCancel").prop("disabled", true);
+                $("#month").prop("disabled", false);
+                $("#month").focus();
+                $("#total_workday").prop("disabled", false);
+                
+            }
+            else {
+                var monthName = $("#month").val();
+              alert(splitStringMonthYear(monthName));
+            }
+        });
+    });
+</script>

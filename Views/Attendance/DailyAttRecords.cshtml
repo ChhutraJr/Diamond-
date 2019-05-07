@@ -1,0 +1,335 @@
+﻿
+@{
+    ViewBag.Title = "DailyAttRecords";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<link href="~/Content/ToggleTreeView.css" rel="stylesheet" />
+<script src="~/Scripts/ClientStorage.js"></script>
+<h4>Daily Attendance Records</h4>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-3 div-Sm-Magin">
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-10 lbSmall">Include Sub Departements</label>
+                        <div class="checkbox col-sm-2" style="margin-top: 0px; top: 4px; margin-left: 0px; left: 0px;">
+                            <label><input type="checkbox" value="" style="top: 0px;margin-top: 0px;"></label>
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-12 lbSmall">Departements</label>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="just-padding" style="background-color:#808080;height:170px;overflow-y:scroll">
+                                <ul>
+                                    <li class="list-main-item" onclick="ToggleSidebarMenu($(this),'sub1')">
+                                        <a href="#" class="main-sidebar-item">
+                                            <span class="fa fa-chevron-right"> </span>
+                                            Company
+                                        </a>
+                                        <ul class="sub-sidebar-menu" id="sub1">
+                                            <li><a href="~/Company/CompanyProfile"><i></i> Company Profile </a></li>
+                                            <li><a href="#"><i></i>Update Company Infomation</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-main-item" onclick="ToggleSidebarMenu($(this),'sub2')">
+                                        <a href="#" class="main-sidebar-item">
+                                            <span class="fa fa-chevron-right"> </span>
+                                            Supplier
+                                        </a>
+                                        <ul class="sub-sidebar-menu" id="sub2">
+                                            <li><a href="#"><i class="fa fa-plus-square-o"></i> Add New Supplier </a></li>
+                                            <li><a href="#"><i class="fa fa-list-ul"></i> Supplier List </a></li>
+                                            <li><a href="#"><i class="fa fa-list-ul"></i> Manage Supplier</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-main-item" onclick="ToggleSidebarMenu($(this),'sub3')">
+                                        <a href="#" class="main-sidebar-item">
+                                            <span class="fa fa-chevron-right"> </span>
+                                            Category
+                                        </a>
+                                        <ul class="sub-sidebar-menu" id="sub3">
+                                            <li><a href="#"><i class="fa fa-plus-square-o"></i> Add New Category </a></li>
+                                            <li><a href="#"><i class="fa fa-list-ul"></i> Category List </a></li>
+                                            <li><a href="#"><i class="fa fa-sitemap"></i> Manage Category</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-main-item" onclick="ToggleSidebarMenu($(this),'sub4')">
+                                        <a href="#" class="main-sidebar-item">
+                                            <span class="fa fa-chevron-right"> </span>
+                                            Product
+                                        </a>
+                                        <ul class="sub-sidebar-menu" id="sub4">
+                                            <li><a href="#"><i class="fa fa-plus-square-o"></i> Add New Category </a></li>
+                                            <li><a href="#"><i class="fa fa-list-ul"></i> Product List </a></li>
+                                            <li><a href="#"><i class="fa fa-sitemap"></i> Manage Product</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-main-item" onclick="ToggleSidebarMenu($(this),'sub5')">
+                                        <a href="#" class="main-sidebar-item">
+                                            <span class="fa fa-chevron-right"> </span>
+                                            Location
+                                        </a>
+                                        <ul class="sub-sidebar-menu" id="sub5">
+                                            <li><a href="#"><i class="fa fa-plus-square-o"></i> Product Location </a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="list-main-item" onclick="ToggleSidebarMenu($(this),'sub6')">
+                                        <a href="#" class="main-sidebar-item">
+                                            <span class="fa fa-chevron-right"> </span>
+                                            User
+                                        </a>
+                                        <ul class="sub-sidebar-menu" id="sub6">
+                                            <li><a href="~/Admin/AdminRegister"><i class="fa fa-user-plus"></i> Create User </a></li>
+                                            <li><a href="~/Admin/RegisterList"><i class="fa fa-list-ol"></i> User List </a></li>
+                                            <li><a href="~/Profile/UserPermission"><i class="fa fa-key"></i> User Permission </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row divPadTop5">
+                        <div class="col-sm-6">
+                            <input class="form-control txtSmall" id="JopPosName" type="date">
+                        </div>
+                        <label class="col-sm-1 lbSmall text-c">to</label>
+                        <div class="col-sm-5 divPadL0">
+                            <input class="form-control txtSmall" id="JopPosName" type="date">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9 div-Sm-Magin">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="lbSmall">Employee Under The Select Departements and Sub-Departements</label>
+                            <div class="pull-right">
+                                <input class="form-control txtSmall" id="JopPosName" type="text">
+                            </div>
+                            <div class="pull-right">
+                                <label class="lbSmall lbMaginRight">Employee ID</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="divTblHeight200">
+                                <table class="table table-striped table-bordered table-hover table-condensed tblSmall">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Gender</th>
+                                            <th>Hired Date</th>
+                                            <th>Position</th>
+                                            <th>Departement</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <select class="form-control txtSmall" id="CboSelectID">
+                                <option>Test</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="divTblHeight150">
+                <table class="table table-striped table-bordered table-hover table-condensed tblSmall">
+                    <thead>
+                        <tr>
+                            <th>Work Date</th>
+                            <th>Time Table</th>
+                            <th>Duration</th>
+                            <th>Plus Duration</th>
+                            <th>Work Unit</th>
+                            <th>Late</th>
+                            <th>Early</th>
+                            <th>Pay</th>
+                            <th>Meal Allowance</th>
+                            <th>Is Overtime</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 MarginBottom-15">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-3 lbSmall text-c">Work Date</label>
+                                <div class="col-sm-9 divPadL0">
+                                    <input class="form-control txtSmall" id="JopPosName" type="date">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-3 lbSmall text-c">Time Table</label>
+                                <div class="col-sm-9 divPadL0">
+                                    <input class="form-control txtSmall" id="JopPosName" type="date">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-3 lbSmall text-c">Duration</label>
+                                <div class="col-sm-3 divPadL0">
+                                    <input class="form-control txtSmall" id="JopPosName" type="text">
+                                </div>
+                                <label class="col-sm-1 lbSmall text-c">Unit</label>
+                                <div class="col-sm-5 divPadL0">
+                                    <input class="form-control txtSmall" id="JopPosName" type="date">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-3 lbSmall text-c">Plus Druation</label>
+                                <div class="col-sm-9 divPadL0">
+                                    <input class="form-control txtSmall" id="JopPosName" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-3 lbSmall text-c">Late</label>
+                                <div class="col-sm-9 divPadL0">
+                                    <input class="form-control txtSmall" id="JopPosName" type="date">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-3 lbSmall text-c">Early</label>
+                                <div class="col-sm-9 divPadL0">
+                                    <input class="form-control txtSmall" id="JopPosName" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-3 lbSmall text-c">Pay</label>
+                                <div class="col-sm-9 divPadL0">
+                                    <input class="form-control txtSmall" id="JopPosName" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-3 lbSmall text-c">Meal Allowance</label>
+                                <div class="col-sm-9 divPadL0">
+                                    <input class="form-control txtSmall" id="JopPosName" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <label><input type="checkbox" value="">Is Over Time</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-file"></i> New (F2)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-search"></i> Search (F4)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-save"></i> Save (Enter)</button>
+            <button type="reset" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-refresh"></i> Refresh (F5)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-off"></i> Exit (Alt+F4)</button>
+        </div>
+    </div>
+</div>
+<script>
+    //Interface
+    $(".sub-sidebar-menu").hide();
+    function ToggleSidebarMenu(li, id) {
+        //alert($("li").index(li)+"Main");
+        //SetSideBarMainActiving($("li").index(li));
+        $(".sub-sidebar-menu").hide(200);
+        var parent = $('#' + id).parent().prop("tagName").toLowerCase();
+        var a = $('#' + id).prev().find('span');
+
+        $(parent + '.list-main-item span').each(function () {
+            $(this).removeAttr('class');
+            $(this).addClass('fa fa-chevron-right');
+        });
+        $('#' + id).toggle(200);
+    }
+    //function toggleHover() {
+    //    var nav = $("#shower");
+    //    var subnav = $(".just-padding");
+    //    if (nav.hasClass('d-sm-block')) {
+    //        nav.removeClass('d-sm-block');
+    //        subnav.hide('slide');
+    //    }
+    //    else {
+    //        nav.addClass('d-sm-block');
+    //        subnav.show('slide');
+    //    }
+    //}
+    $(document).ready(function () {
+
+        //$(document).keydown(function (event) {
+        //    if (event.keyCode == 115) { // F4
+        //        toggleHover();
+        //    }
+        //});
+        //Set Active Class
+        //$(function () {
+        //    var main = GetSideBarMainActiving();
+        //    var sub = GetSideBarSubActiving();
+        //    if(sub !=null)
+        //        $("li").eq(sub).addClass('active-subside-menu');
+        //    if(main !=null)
+        //    $("li").eq(main).click();
+        //});
+
+
+        $(function () {
+            $('.list-main-item').on('click', function () {
+                $('.fa', this)
+                  .toggleClass('fa-chevron-right')
+                  .toggleClass('fa-chevron-down');
+            });
+        });
+
+        $(".sub-sidebar-menu li").click(function () {
+            //alert($("li").index($(this)) + "Sub");
+            SetSideBarSubActiving($("li").index($(this)));
+            $(this).addClass('active-subside-menu');
+        });
+
+    });
+</script>

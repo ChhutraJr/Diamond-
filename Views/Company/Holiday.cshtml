@@ -1,0 +1,373 @@
+﻿
+@{
+    ViewBag.Title = "Holiday";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<script src="~/Content/MyJquery.js"></script>
+<h4>Holiday</h4>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-12 div-Sm-Magin">
+            <div class="divTblHeight250">
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr class="row-highlight">
+                            <th style="display:none">ID</th>
+                            <th>Holiday Name</th>
+                            <th>Start Date</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list_holiday" style="cursor:pointer"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label>Holiday Information</label>
+                </div>
+                <div class="panel-body" id="input_type">
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Holiday Name :</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="holiday_name" type="text">
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Start Date :</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="start" type="date">
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Duration :</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="duration" type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer divPadR0">
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnNew" value="1"><i class="glyphicon glyphicon-file"></i> New (F2)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnEdit" value="1"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnDelete" data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnSearch"><i class="glyphicon glyphicon-search"></i> Search (F4)</button>
+                    @* <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-save"></i> Save (Enter)</button>*@
+                    <button type="reset" class="btn btn-primary btnMarginBottom5" id="btnCancel"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnRefresh"><i class="glyphicon glyphicon-refresh"></i> Refresh (F5)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnExit" data-toggle="modal" data-target="#exit"><i class="glyphicon glyphicon-off"></i> Exit (Alt+F4)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exit" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Exit Form</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to Exit?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="Exit" data-dismiss="modal">Exit</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delete" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Delete Form</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to delete?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="Delete" data-dismiss="modal">OK</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function Disabled_Button()
+    {
+        $("#btnEdit").prop("disabled", true);
+        $("#btnDelete").prop("disabled", true);
+        $("#btnSearch").prop("disabled", true);
+        $("#btnCancel").prop("disabled", true);
+    }
+    function Disabled_Input() {
+        $("#input_type input").prop("disabled", true);
+    }
+    function Enabled_Input()
+    {
+        $("#input_type input").prop("disabled", false);
+    }
+    function SelectedRow()
+    {
+        $(document).on("click", "#list_holiday tr", function () {
+
+            $("#btnNew").prop("disabled", true);
+
+            if ($("#btnNew").val() == 1) {
+                $('#list_holiday tr').css("background-color", "transparent");
+                $(this).css("background-color", "#61aef7");
+
+                $("#btnEdit").prop("disabled", false);
+                $("#btnDelete").prop("disabled", false);
+                $("#btnCancel").prop("disabled", false);
+
+                var holidayId = $(this).data("hid");
+                var holidayName = $(this).data("hname");
+                var startDate = $(this).data("startdate");
+                var Duration = $(this).data("duration");
+                $("#btnEdit").data("hid", holidayId);
+                $("#Delete").data("hid", holidayId);
+                $("#holiday_name").val(holidayName);
+                $("#start").val(startDate);
+                $("#duration").val(Duration);
+            }
+        });
+    }
+    function Clear_Input()
+    {
+        $("#input_type input").val('');
+    }
+    function Load_AllHoliday()
+    {
+        $.ajax({
+            url: "/Company/Load_Holiday",
+            datatype: "JSON",
+            type: "POST",
+            success:function(result)
+            {
+
+               // DisplayDate()
+                var arrdata = JsonArraySpliter(result);
+                
+                for (var i = 0; i < arrdata.length; i++) {
+                  
+                    $("#list_holiday").append("<tr data-hid='" + arrdata[i].holidayID + "'" +
+                                                "data-hname='" + arrdata[i].holidayName + "'" +
+                                                "data-startdate='" + DisplayDate(arrdata[i].startDate) + "'" +
+                                                "data-duration='" + arrdata[i].duration + "'" +
+
+
+                                            "'><td style='display:none'>" + arrdata[i].holidayID +
+                                            "</td><td>"+ arrdata[i].holidayName +
+                                              "</td><td>" + DisplayDate(arrdata[i].startDate) +
+                                              "</td><td>" + arrdata[i].duration +
+                                            "</td></tr>")
+                }
+            }
+        });
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        Load_AllHoliday();
+        Disabled_Button();
+        Disabled_Input();
+        SelectedRow();
+        $("#btnNew").click(function () {
+            if ($(this).val() == 1) {
+                Enabled_Input();
+                Clear_Input();
+                $("#list_holiday tr").prop("disabled", true);
+                $("#holiday_name").focus();
+                $("#btnCancel").prop("disabled", false);
+                $("#btnExit").prop("disabled", true);
+                $(this).val(0);
+                $(this).text('').append('<i class="glyphicon glyphicon-save"></i>' + 'Save(Enter)');
+            }
+            else {
+                var holidayName = $("#holiday_name").val();
+                if (holidayName == '')
+                {
+                    alert("Please input Holiday Name");
+                    return;
+                }
+                var startDate = $("#start").val();
+                if (startDate == '')
+                {
+                    alert("Please input Start Date of Holiday");
+                    return;
+                }
+                var duration = $("#duration").val();
+                if(duration=='')
+                {
+                    alert("Please input Duration");
+                    return;
+                }
+               // var obj = { HolidayName: holidayName, StartDate: startDate, Duration: duration }
+                $.ajax({
+                    url: "/Company/Add_Holiday",
+                    datatype: "JSON",
+                    type: "POST",
+                    data: { holidayName, startDate, duration },
+                    success:function(result)
+                    {
+                        var arrdata = JsonArraySpliter(result);
+                        for (var i = 0; i < arrdata.length; i++) {
+                            // alert(arrdata[i].startDate);
+                            $("#list_holiday").append("<tr data-hid='" + arrdata[i].holidayID +"'"+
+                                                        "data-hname='" + arrdata[i].holidayName + "'" +
+                                                        "data-startdate='" + arrdata[i].startDate + "'" +
+                                                        "data-duration='"+arrdata[i].duration+"'"+
+
+
+                                                    "'><td style='display:none'>" + arrdata[i].holidayID +
+                                                     "</td><td>"+ arrdata[i].holidayName +
+                                                      "</td><td>" + DisplayDate(arrdata[i].startDate) +
+                                                      "</td><td>" + arrdata[i].duration +
+                                                    "</td></tr>")
+                        }
+                        
+                        Clear_Input();
+                        $("#holiday_name").focus();
+                    }
+                });
+            }
+        });
+
+        $("#Exit").click(function () {
+            var url = '@Url.Action("index", "Home")';
+            window.location.href = url;
+        });
+        $("#btnRefresh").click(function () {
+            location.reload();
+        });
+        $("#btnCancel").click(function () {
+            Clear_Input();
+            Disabled_Input();
+            $("#btnExit").prop("disabled", false);
+            $("#btnNew").prop("disabled", false);
+            $("#btnNew").val(1);
+            $("#btnNew").text('').append('<i class="glyphicon glyphicon-file"></i>', ' New (F2)');
+            $("#btnEdit").prop("disabled", true);
+            $("#btnEdit").val(1);
+            $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>',' Edit (F3)');
+            $("#btnDelete").prop("disabled", true);
+            $("#list_holiday tr").prop("disabled", false);
+            $('#list_holiday tr').css("background-color", "transparent");
+        });
+        $("#btnEdit").click(function () {
+            if($(this).val()==1)
+            {
+               
+                Enabled_Input();
+                $("#holiday_name").focus();
+                $(this).val(0);
+                $(this).text('').append('<i class="glyphicon glyphicon-edit"></i>', ' Update (F3)');
+                $("#btnExit").prop("disabled", true);
+                $("#list_holiday tr").prop("disabled", true);
+                $("#btnDelete").prop("disabled", true);
+            }
+            else {
+                var id = $(this).data("hid");
+                var con_name = $("#contract_name").val();
+                if (con_name == '')
+                {
+                    alert("Please input Contract Name");
+                    return;
+                }
+                var con_desc=$("#contract_desc").val();
+                if(con_desc=='')
+                {
+                    alert("Please input Contract Description");
+                    return;
+                }
+              
+                var holidayName = $("#holiday_name").val();
+                if (holidayName == '') {
+                    alert("Please input Holiday Name");
+                    return;
+                }
+                var startDate = $("#start").val();
+                if (startDate == '') {
+                    alert("Please input Start Date of Holiday");
+                    return;
+                }
+                var duration = $("#duration").val();
+                if (duration == '') {
+                    alert("Please input Duration");
+                    return;
+                }
+                $.ajax({
+                    url: "/Company/Edit_Holiday",
+                    datatype: "JSON",
+                    type: "POST",
+                    data: { id, holidayName, startDate, duration },
+                    success:function(result)
+                    {
+                        $("#list_holiday tr").remove();
+                        var arrdata = JsonArraySpliter(result);
+                        for (var i = 0; i < arrdata.length; i++) {
+                            $("#list_holiday").append("<tr data-hid='" + arrdata[i].holidayID + "'" +
+                                                        "data-hname='" + arrdata[i].holidayName + "'" +
+                                                        "data-startdate='" + arrdata[i].startDate + "'" +
+                                                        "data-duration='" + arrdata[i].duration + "'" +
+
+
+                                                    "'><td style='display:none'>" + arrdata[i].holidayID +
+                                                   "</td><td>" + arrdata[i].holidayName +
+                                                      "</td><td>" + DisplayDate(arrdata[i].startDate) +
+                                                      "</td><td>" + arrdata[i].duration +
+                                                    "</td></tr>")
+                        }
+                        Clear_Input();
+                        $("#btnEdit").val(1);
+                        $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>', ' Edit (F3)');
+                        $("#btnDelete").prop("disabled", true);
+                        $("#btnEdit").prop("disabled", true);
+                        $("#list_holiday tr").prop("disabled", false);
+                        $("#btnNew").prop("disabled", false);
+                    }
+                });
+            }
+        });
+        $("#Delete").click(function () {
+            var id = $(this).data("hid");
+          
+            $.ajax({
+                url: "/Company/Delete_Holiday",
+                datatype: "JSON",
+                type: "POST",
+                data: { id },
+                success:function(result)
+            {
+                    DeleteRowbyColumnValue($("#list_holiday tr"), 0, id);
+                    Clear_Input();
+                    $("#btnDelete").prop("disabled", true);
+                    $("#btnEdit").prop("disabled", true);
+                    $("#btnExit").prop("disabled", false);
+                    $("#btnNew").prop("disabled", false);
+                }
+               
+            })
+            
+        });
+    });
+</script>

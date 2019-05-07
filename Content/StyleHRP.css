@@ -1,0 +1,252 @@
+﻿.MainForm{
+    margin-top:50px; max-width:100%; min-width:1024px;
+}
+/*programer:kunther*/ 
+/****New Update****/
+.divPadR0{
+    padding-right: 0px;
+}
+.row-highlight {
+    background-color: #149498;
+   
+}
+.center{
+      text-align:center;
+  }   
+.divPadL0{
+    padding-left: 0px;
+}
+.MrginTop0Bottom0{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.MarginBottom-15{
+    margin-bottom: -15px;
+}
+.divPadTop7{
+    padding-top: 7px;
+}
+.divPadTop5{
+    padding-top: 5px;
+}
+.divPadTop15{
+    padding-top: 15px;
+}
+.divMaginBottom0{
+    margin-bottom: 0px;
+}
+.divPadBottom0{
+    padding-bottom: 0px;
+}
+.divH100{
+    height:100px
+}
+.divMarginTop15{
+    margin-top: 15px;
+}
+.divTblHeight220{
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow-y:scroll;
+    border-style:solid;
+    border-width:1px;
+    height:220px;
+}
+.divTblHeight250{
+    /*margin-top: 5px;
+    margin-bottom: 5px;*/ 
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    border-style:solid;
+    border-width:1px;
+    height:250px;
+    
+}
+.divTblHeight80{
+    /*margin-top: 5px;
+    margin-bottom: 5px;*/ 
+    margin-left: 0px;
+    margin-right: 0px;
+    /*overflow-y:scroll;*/
+    border-style:solid;
+    border-width:1px;
+    height:80px;
+    
+}
+.divTblHeight20{
+    /*margin-top: 5px;
+    margin-bottom: 5px;*/ 
+    margin-left: 0px;
+    margin-right: 0px;
+  
+    border-style:solid;
+    border-width:1px;
+    height:30px;
+}
+/*.divTblHeight230{
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow-y:scroll;
+    border-style:solid;
+    border-width:1px;
+    height:30px;
+}*/
+
+.divTblHeight450{
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow-y:scroll;
+    border-style:solid;
+    border-width:1px;
+    height:450px;
+}
+.divTblHeight200{
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow-y:scroll;
+    border-style:solid;
+    border-width:1px;
+    height:200px;
+}
+.divTblHeight150{
+    margin-top: 5px;
+    margin-bottom: 5px; 
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow-y:scroll;
+    border-style:solid;
+    border-width:1px;
+    height:150px;
+}
+.div-Sm-Magin{
+     margin-bottom: 5px;
+     margin-right: 0px;
+     margin-left: 0px;
+}
+.lbPadTop6PadBot6{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right:0px;
+}
+.tblSmall{
+     font-size: 0.9em;
+}
+.lbSmall{
+    font-size:0.9em;
+    margin-bottom: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 4px;
+}
+.lbMaginRight{
+    margin-right: 5px;
+}
+.lbSmallRight{
+    font-size:0.9em;
+    margin-bottom: 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 4px;
+    text-align: right;
+}
+.divRight{
+    text-align: right;
+}
+.txtSmall{
+    height:1.8em;
+    padding:0px;
+    font-size:1em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.btnSmall{
+   height:1.8em;
+   padding:0px; 
+   font-size:1em; 
+   padding-left: 10px; 
+   padding-right: 10px;
+}
+.btnMarginBottom5{
+    margin-bottom: 5px;
+}
+.btnMarginleft10{
+    margin-left: 10px;
+}
+.btnMarginTop30{
+    margin-top: 30px;
+}
+.imgPhoto{
+    border-width:1px;
+    border-style:solid;
+    width:105px;
+    height:140px;
+}
+.MarginTop45{
+    margin-top: 45px;
+}
+.height225{
+     height:225px;
+}
+
+/*StyleTab*/
+.nav-tabs { border-bottom: 2px solid #DDD; }
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+     border-width: 0; 
+}
+.nav-tabs > li > a { 
+    border: none; color: #666; 
+}
+.nav-tabs > li.active > a, .nav-tabs > li > a:hover { 
+    border: none; 
+    color: #4285F4 !important; 
+    background: transparent; 
+}
+.nav-tabs > li > a::after { 
+    content: ""; 
+    background: #4285F4; 
+    height: 2px; 
+    position: absolute; 
+    width: 100%; 
+    left: 0px; 
+    bottom: -1px; 
+    transition: all 250ms ease 0s; 
+    transform: scale(0); 
+}
+.nav-tabs > li.active > a::after, .nav-tabs > li:hover > a::after { 
+    transform: scale(1); 
+}
+.tab-nav > li > a::after { 
+    background: #21527d none repeat scroll 0% 0%;
+    color: #fff; 
+}
+.tab-pane { 
+    padding: 15px 0; 
+}
+.tab-content{
+    padding:0 20px;
+}
+.card {
+    background: #FFF none repeat scroll 0% 0%; 
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3); 
+    margin-bottom: 30px; 
+}
+body{ 
+    background: #EDECEC;
+}
+thead {
+   table-layout: fixed;  
+}
+tbody{
+    overflow-y:auto;
+}
+.marbutton0{margin-bottom:0px;}

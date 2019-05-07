@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Holidays";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<h4>Holidays</h4>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="divTblHeight250">
+                <table class="table table-striped table-bordered table-hover table-condensed tblSmall">
+                    <thead>
+                        <tr>
+                            <th>Work Date</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Permisson</th>
+                            <th>Calculate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 MarginBottom-15">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label>Holiday Detail</label>
+                </div>
+                <div class="panel-body">
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 lbSmall">Holiday Name</label>
+                        <div class="col-sm-3 divPadL0">
+                            <input class="form-control txtSmall" id="JopPosName" type="text">
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 lbSmall">Start Date</label>
+                        <div class="col-sm-3 divPadL0">
+                            <select class="form-control txtSmall" id="CboSelectID">
+                                <option>Test</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 lbSmall">Duration</label>
+                        <div class="col-sm-3 divPadL0">
+                            <input class="form-control txtSmall" id="JopPosName" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer divPadR0">
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-file"></i> New (F2)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-search"></i> Search (F4)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-save"></i> Save (Enter)</button>
+                    <button type="reset" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-refresh"></i> Refresh (F5)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-off"></i> Exit (Alt+F4)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "UploadCollectedData";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<h4>Upload Collected Data</h4>
+<div class="form-horizontal">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-offset-3 col-sm-6">
+                <div class="row div-Sm-Magin">
+                    <div class="col-sm-3 divPadTop7">
+                        <label>File Name</label>
+                    </div>
+                    <div class="col-sm-7 divPadR0">
+                        <input class="form-control" id="JopPosName" type="text">
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-primary pull-right">...</button>
+                    </div>
+                </div>
+                <div class="row div-Sm-Magin">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <label>Synchronize</label>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-6 MarginTop45">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <label><input type="checkbox" value="">Synchronize Finger Print</label>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <label><input type="checkbox" value="">Synchronize Attendance</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Finger Print</label>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                <form>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="optradio">Synchronize All</label>
+                                                    </div>
+                                                    <div class="radio">
+                                                        <label><input type="radio" name="optradio">Synchronize</label>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-primary">Execute</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>

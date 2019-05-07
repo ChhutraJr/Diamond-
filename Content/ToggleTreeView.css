@@ -1,0 +1,49 @@
+﻿.just-padding {
+    padding-top: 0px;
+    padding-left:5px;
+}
+.main-sidebar-item{
+    text-decoration:none;
+    color:white;
+    padding:8px;
+    display:block;
+    font-weight:600;
+}
+.main-sidebar-item:hover{
+    text-decoration:none;
+    color:#808080;
+    background-color:white;
+}
+.sub-sidebar-menu{
+    padding-left:20px;
+    border-left:5px solid #808080;
+}
+.sub-sidebar-menu a{
+    text-decoration:none;
+    color:white;
+    padding:8px;
+    display:block;
+    font-size:1em;
+    font-weight:600;
+}
+.sub-sidebar-menu a:hover{
+    text-decoration:none;
+    color:#808080;
+    background-color:white;
+    padding:8px;
+    display:block;
+    font-size:1em;
+    font-weight:600;
+}
+.active-subside-menu{
+    text-decoration:none;
+    color:white;
+    background-color:#ff6a00;
+}
+label > i.fa-bars{
+    cursor:pointer;
+}
+label > i.fa-bars:hover{
+    background-color:#797979;
+    border-radius:5px;
+ }

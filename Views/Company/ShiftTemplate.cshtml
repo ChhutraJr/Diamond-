@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "ShiftTemplate";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<h4>Shift Template</h4>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-2 divPadTop7">
+            <label>Template Name</label>
+        </div>
+        <div class="col-sm-3">
+            <select class="form-control" id="TempName">
+                <option>1</option>
+                <option>2</option>
+            </select>
+        </div>
+        <div class="col-sm-5 divPadL0">
+            <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Add Timetable</button>
+            <button type="button" class="btn btn-primary">Clear</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 div-Sm-Magin">
+            <label>Template Detail</label>
+            <div class="divTblHeight220">
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr>
+                            <th> </th>
+                            <th>AM</th>
+                            <th>PM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>6:00</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-file"></i> New (F2)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-search"></i> Search (F4)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-save"></i> Save (Enter)</button>
+            <button type="reset" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-refresh"></i> Refresh (F5)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-off"></i> Exit (Alt+F4)</button>
+        </div>
+    </div>
+</div>

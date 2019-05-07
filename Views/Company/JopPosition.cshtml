@@ -1,0 +1,406 @@
+﻿
+@{
+    ViewBag.Title = "JopPosition";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<script src="~/Content/MyJquery.js"></script>
+<h4>Jop Position</h4>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="divTblHeight250">
+                <table class="table table-bordered table-hover table-condensed tblSmall fixed" id="tbl"">
+                    <thead>
+                        <tr class="row-highlight">
+                            <th style="display:none">ID</th>
+                            <th>Job Position Name</th>
+                            <th>Job Position in Khmer</th>
+                            <th>Job Position in Chineese</th>
+                            <th>Job Position Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list_jobPos" style="cursor:pointer">
+                        @*<tr>
+                            <td>ta</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>*@
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label>Job Position Detail</label>
+                </div>
+                <div class="panel-body" id="input_type">
+                    <div class="form-group" style="margin-top: 5px;margin-bottom: 5px; margin-left: 0px;">
+                        <label class="col-sm-3 control-label">Job Postion Name</label>
+                        <div class="col-sm-6">
+                            <input class="form-control input-sm" id="JobPosName" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 5px;margin-bottom: 5px; margin-left: 0px;">
+                        <label class="col-sm-3 control-label">Job Position in Khmer</label>
+                        <div class="col-sm-6">
+                            <input class="form-control input-sm" id="JobPosKhmer" type="text" name="namekh">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 5px;margin-bottom: 5px; margin-left: 0px;">
+                        <label class="col-sm-3 control-label">Job Postion in Chineese</label>
+                        <div class="col-sm-6">
+                            <input class="form-control input-sm" id="JobPosChineese" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 5px;margin-bottom: 5px; margin-left: 0px;">
+                        <label class="col-sm-3 control-label">Job Postion Description</label>
+                        <div class="col-sm-6">
+                            <input class="form-control input-sm" id="JobPosDesc" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer divPadR0">
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnNew" value="1"><i class="glyphicon glyphicon-file"></i> New (F2)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnEdit" value="1"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnDelete" data-toggle="modal" data-target="#deleteModal"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnSearch"><i class="glyphicon glyphicon-search"></i> Search (F4)</button>
+                   @* <button type="button" class="btn btn-primary btnMarginBottom5" id="btnSave"><i class="glyphicon glyphicon-save"></i> Save (Enter)</button>*@
+                    <button type="reset" class="btn btn-primary btnMarginBottom5" id="btnCancel"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnRefresh"><i class="glyphicon glyphicon-refresh"></i> Refresh (F5)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnExit" data-toggle="modal" data-target="#exit"><i class="glyphicon glyphicon-off"></i> Exit (Alt+F4)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Modal Delete-->
+<div class="modal fade" id="deleteModal" data-ruid="dd" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Delete Job Position</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to delete this Job Position?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="btnDel" data-dismiss="modal">OK</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exit" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Exit Form</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to Exit?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="Exit" data-dismiss="modal">Exit</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function Load_AllJobPos()
+    {
+        $.ajax({
+            url: "/Company/load_JobPos",
+            datatype: "JSON",
+            type: "POST",
+            success:function(result)
+            { var arrdata = JsonArraySpliter(result);
+            for (var i = 0; i < arrdata.length; i++) {
+                //data- allows only lowercase
+                $("#list_jobPos").append("<tr data-jobid='" + arrdata[i].jobPositionID + "' " +
+                                               "data-jobname='" + arrdata[i].jobPositionName + "' " +
+                                               "data-jobinkhmer='" + arrdata[i].jobPositionInKhmer + "' " + 
+                                               "data-jobinchineese='" + arrdata[i].jobPositionInChineese + "'" +
+                                               "data-jobdesc='"+arrdata[i].jobDescription+"'"+
+
+                                               "'><td style='display:none'>" + arrdata[i].jobPositionID +
+                                               "</td><td>" + arrdata[i].jobPositionName +
+                                               "</td><td>" + arrdata[i].jobPositionInKhmer +
+                                               "</td><td>" + arrdata[i].jobPositionInChineese +
+                                               "</td><td>" + arrdata[i].jobDescription +
+                                               "</td></tr>");
+                   
+                }
+                
+            }
+        });
+    }
+    function Clear_Input()
+    {
+        $("#input_type input").val('');
+    }
+    function Disabled_Input()
+    {
+        $("#input_type input").prop("disabled", true);
+   
+    }
+    function Enabled_Input()
+    {
+        $("#input_type input").prop("disabled", false);
+    }
+    function Disabled_Button()
+    {
+        $("#btnEdit").prop("disabled", true);
+        $("#btnDelete").prop("disabled", true);
+        $("#btnSearch").prop("disabled", true);
+        $("#btnCancel").prop("disabled", true);
+       
+       
+    }
+    function SelectedRow()
+    {
+        $(document).on("click", "#list_jobPos tr", function () {
+        $("#btnNew").prop("disabled", true);
+            if ($("#btnNew").val() == 1) {
+                $('#list_jobPos tr').css("background-color", "transparent");
+                $(this).css("background-color", "#61aef7");
+                $("#btnEdit").prop("disabled", false);
+                $("#btnDelete").prop("disabled", false);
+                $("#btnCancel").prop("disabled", false);
+              
+                var jobID = $(this).data("jobid");
+                var jobName = $(this).data("jobname");
+                var jobInKhmer = $(this).data("jobinkhmer");
+                var jobInChineese = $(this).data("jobinchineese");
+                var jobDesc = $(this).data("jobdesc");
+
+                $("#btnEdit").data("jobid", jobID);
+                $("#btnDel").data("jobid", jobID);
+                $("#JobPosName").val(jobName);
+                $("#JobPosKhmer").val(jobInKhmer);
+                $("#JobPosChineese").val(jobInChineese);
+                $("#JobPosDesc").val(jobDesc);
+            }
+           
+        });
+       
+    }
+  
+</script>
+<script>
+    $(document).ready(function () {
+        
+        Disabled_Button();
+        Disabled_Input();
+        Load_AllJobPos();
+        SelectedRow();
+       // $("#list_jobPos tr").prop("disabled", true);
+
+        $("#btnNew").click(function () {
+        if($(this).val()==1)
+            {
+           
+                $("#list_jobPos tr").prop("disabled", true);
+               
+                Enabled_Input();
+                $("#JobPosName").focus();
+                $("#btnExit").prop("disabled", true)
+                Clear_Input();
+                $(this).val(0);
+                $(this).text('').append('<i class="glyphicon glyphicon-save"></i>' + 'Save(Enter)');
+                $("#btnCancel").prop("disabled", false);
+                $("#btnEdit").prop("disabled", true);
+                $("#btnDelete").prop("disabled", true);
+            }
+            else {
+                var posName = $("#JobPosName").val();
+                if (posName == "")
+                {
+                    alert("Please input Job Position Name");
+                    $("#JobPosName").focus();
+                    return;
+                }
+               
+                var posKhmer = $("#JobPosKhmer").val();
+                if(posKhmer=="")
+                {
+                    alert("Please input Job Position in Khmer");
+                    $("#JobPosKhmer").focus();
+                    return;
+                }
+                var posChineese = $("#JobPosChineese").val();
+                if (posChineese == "")
+                {
+                    alert("Please input Job Position in Chineese");
+                    $("#JobPosChineese").focus();
+                    return;
+                }
+                var posDesc = $("#JobPosDesc").val();
+                if (posDesc == "")
+                {
+                    alert("Please input Job Description");
+                    $("#JobPosDesc").focus();
+                    return;
+                }
+                $.ajax({
+                    url: "/Company/addJobPos",
+                    datatype: "JSON",
+                    type: "POST",
+                    data: { posName, posKhmer,posChineese,posDesc },
+                    success:function(result)
+                    {
+
+                        var arrdata = JsonArraySpliter(result);
+                        for (var i = 0; i < arrdata.length; i++) {
+                            $("#list_jobPos").append("<tr data-jobid='" + arrdata[i].jobPositionID + "' " +
+                                                "data-jobname='" + arrdata[i].jobPositionName + "' " +
+                                                "data-jobinkhmer='" + arrdata[i].jobPositionInKhmer + "' " +
+                                                "data-jobinchineese='" + arrdata[i].jobPositionInChineese + "'" +
+                                                "data-jobdesc='" + arrdata[i].jobDescription + "'" +
+
+                                                "'><td style='display:none'>" + arrdata[i].jobPositionID +
+                                                "</td><td>" + arrdata[i].jobPositionName +
+                                                "</td><td>" + arrdata[i].jobPositionInKhmer +
+                                                "</td><td>" + arrdata[i].jobPositionInChineese +
+                                                "</td><td>" + arrdata[i].jobDescription +
+                                                "</td></tr>");
+                        }
+                        Clear_Input();
+                        $("#JobPosName").focus();
+                        $("#list_jobPos tr").prop("disabled", true);
+                    }
+
+                });
+            }
+        });
+        $("#btnCancel").click(function () {
+            $("#list_jobPos tr").prop("disabled", false);
+            $('#list_jobPos tr').css("background-color", "transparent");
+            Clear_Input();
+            Disabled_Input();
+            $("#JobPosName").focus();
+            $("#btnNew").text('').append('<i class="glyphicon glyphicon-file"></i>' + 'New (F2)');
+            $("#btnNew").val(1);
+            $("#btnNew").prop("disabled", false);
+            $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>' + 'Edit (F3)');
+            $("#btnEdit").val(1);
+            $("#btnEdit").prop("disabled", true);
+            $("#btnDelete").prop("disabled", true);
+           
+            $("#btnExit").prop("disabled", false);
+        });
+        $("#btnEdit").click(function () {
+           
+            if ($(this).val() == 1) {
+                $("#list_jobPos tr").prop("disabled", true);
+                Enabled_Input();
+                $("#JobPosName").focus();
+                $(this).text('').append('<i class="glyphicon glyphicon-edit"></i>' + 'Update(F3)');
+                $(this).val(0);
+                $("#btnExit").prop("disabled", true);
+                $("#btnDelete").prop("disabled", true);
+            }
+            else {
+                var jobID = $(this).data("jobid");
+             
+                $("#JobPosName").focus();
+                var posName = $("#JobPosName").val();
+                if (posName == "") {
+                    alert("Please input Job Position Name");
+                }
+                var posKhmer = $("#JobPosKhmer").val();
+                if (posKhmer == "") {
+                    alert("Please input Job Position in Khmer");
+                }
+                var posChineese = $("#JobPosChineese").val();
+                if (posChineese == "") {
+                    alert("Please input Job Position in Chineese");
+                }
+                var posDesc = $("#JobPosDesc").val();
+                if (posDesc == "") {
+                    alert("Please input Job Description");
+                }
+               
+                    $.ajax({
+                        url: "/Company/update_job",
+                        datatype: "JSON",
+                        type: "POST",
+                        data: { jobID, posName, posKhmer, posChineese, posDesc },
+                        success:function(result)
+                        {
+                            alert("Updated!");
+                            $("#list_jobPos tr").remove();
+                            var arrdata = JsonArraySpliter(result);
+                            for (var i = 0; i < arrdata.length; i++) {
+                                $("#list_jobPos").append("<tr data-jobid='" + arrdata[i].jobPositionID + "' " +
+                                                 "data-jobname='" + arrdata[i].jobPositionName + "' " +
+                                                 "data-jobinkhmer='" + arrdata[i].jobPositionInKhmer + "' " +
+                                                 "data-jobinchineese='" + arrdata[i].jobPositionInChineese + "'" +
+                                                 "data-jobdesc='" + arrdata[i].jobDescription + "'" +
+
+                                                 "'><td style='display:none'>" + arrdata[i].jobPositionID +
+                                                 "</td><td>" + arrdata[i].jobPositionName +
+                                                 "</td><td>" + arrdata[i].jobPositionInKhmer +
+                                                 "</td><td>" + arrdata[i].jobPositionInChineese +
+                                                 "</td><td>" + arrdata[i].jobDescription +
+                                                 "</td></tr>");
+                            }
+                            
+                            $("#btnEdit").val(1);
+                            $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>' + 'Edit(F3)');
+                            $("#btnEdit").prop("disabled", true);
+                            $("#btnDelete").prop("disabled", true);
+                            $("#btnNew").prop("disabled", false);
+                            $("#btnExit").prop("disabled", false);
+                            $("#btnCancel").prop("disabled", true);
+                            Clear_Input();
+                            Disabled_Input();
+                            $("#list_jobPos tr").prop("disabled", false);
+                        }
+                    });
+                }
+            
+        });
+        $("#btnDel").click(function () {
+            var jobID = $(this).data("jobid");
+            $.ajax({
+                url: "/Company/Delete_JobPos",
+                datatype: "JSON",
+                type: "POST",
+                data: { jobID },
+                success:function(result)
+                {
+                    DeleteRowbyColumnValue($("#list_jobPos tr"), 0, jobID);
+                    Clear_Input();
+                    Disabled_Button();
+                    $("#btnNew").prop("disabled", false);
+                }
+            });
+        });
+        $("#btnRefresh").click(function () {
+            location.reload();
+         
+        });
+        $("#Exit").click(function () {
+            var url = '@Url.Action("index", "Home")';
+            window.location.href = url;
+        });
+    });
+</script>

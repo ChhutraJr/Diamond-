@@ -1,0 +1,356 @@
+﻿
+@{
+    ViewBag.Title = "TaxScheme";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+
+}
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<script src="~/Content/MyJquery.js"></script>
+<h4>Tax Scheme</h4>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-12 div-Sm-Magin">
+            <div class="divTblHeight250">
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr class="row-highlight">
+                            <th style="display:none">ID</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Tax (%)</th>
+                        </tr>
+                    </thead>
+                    <tbody  id="list_taxScheme" style="cursor:pointer">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label>Tax Salary Information</label>
+                </div>
+                <div class="panel-body" id="input_type">
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">From :</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="salaryFrom" type="number">
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">To :</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="salaryTo" type="number">
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Tax (%) :</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="tax" type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer divPadR0">
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnNew" value="1"><i class="glyphicon glyphicon-file"></i> New (F2)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnEdit" value="1"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnDelete" data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnSearch"><i class="glyphicon glyphicon-search"></i> Search (F4)</button>
+                 @* <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-save"></i> Save (Enter)</button>*@
+                    <button type="reset" class="btn btn-primary btnMarginBottom5" id="btnCancel"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnRefresh"><i class="glyphicon glyphicon-refresh"></i> Refresh (F5)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnExit" data-toggle="modal" data-target="#exit"><i class="glyphicon glyphicon-off"></i> Exit (Alt+F4)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exit" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Exit Form</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to Exit?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="Exit" data-dismiss="modal">Exit</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="delete" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Delete Tax Scheme</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to delete Tax Scheme?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="Delete" data-dismiss="modal">OK</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function LoadTaxScheme()
+    {
+        $.ajax({
+            url: "/Company/load_taxscheme",
+            datatype: "JSON",
+            type: "POST",
+            success:function(result)
+            {
+                var arrdata = JsonArraySpliter(result);
+                for (var i = 0; i < arrdata.length; i++) {
+                    $("#list_taxScheme").append("<tr data-tid='" + arrdata[i].taxSID +"' "+
+                                                   "data-sfrom='" + arrdata[i].salaryFrom + "'" +
+                                                   "data-sto='" + arrdata[i].salaryTo + "'" +
+                                                   "data-tax='"+arrdata[i].taxPercent+"'"+
+                                                "'><td style='display:none'>"+arrdata[i].taxSID+
+                                               "</td><td>" + arrdata[i].salaryFrom +
+                                                 "</td><td>"+arrdata[i].salaryTo+
+                                                "</td><td>" + arrdata[i].taxPercent +
+                                                "</td></tr>" );
+                    
+            }
+            }
+        })
+    }
+    function Disabled_Button()
+    {
+        $("#btnEdit").prop("disabled", true);
+        $("#btnDelete").prop("disabled", true);
+        $("#btnSearch").prop("disabled", true);
+        $("#btnCancel").prop("disabled", true);
+     
+    }
+    function Disable_Input()
+    {
+        $("#input_type input").prop("disabled", true);
+    }
+    function Enabled_Input()
+    {
+        $("#input_type input").prop("disabled", false);
+    }
+    function Clear_Input()
+    {
+        $("#input_type input").val('');
+    }
+    function SelectedRow()
+    {
+        
+        $(document).on("click", "#list_taxScheme tr", function () {
+            $("#btnNew").prop("disabled", true);
+            $("#btnCancel").prop("disabled", false);
+            if ($("#btnNew").val() == 1) {
+                $("#list_taxScheme tr").css("background-color", "transparent");
+                $(this).css("background-color", "#61aef7");
+                $("#btnEdit").prop("disabled", false);
+                $("#btnDelete").prop("disabled", false);
+
+                var taxid = $(this).data("tid");
+                var safrom = $(this).data("sfrom");
+                var sato = $(this).data("sto");
+                var tpercent = $(this).data("tax");
+
+                $("#btnEdit").data("tid", taxid);
+                $("#Delete").data("tid", taxid);
+                $("#salaryFrom").val(safrom);
+                $("#salaryTo").val(sato);
+                $("#tax").val(tpercent);
+            }
+        });
+       
+        }
+</script>
+<script>
+    $(document).ready(function () {
+        LoadTaxScheme();
+        Disabled_Button();
+        Disable_Input();
+        SelectedRow();
+        $("#btnNew").click(function () {
+            if($(this).val()==1)
+            {
+                $("#list_taxScheme tr").prop("disabled", true);
+                Enabled_Input();
+                $("#btnExit").prop("disabled", true);
+                $("#btnEdit").prop("disabled", true);
+                $("#btnDelete").prop("disabled", true);
+                $("#btnCancel").prop("disabled", false);
+                $("#btnRefresh").prop("disabled", false);
+                $("#salaryFrom").focus();
+                $(this).val(0);
+                $(this).text('').append('<i class="glyphicon glyphicon-save"></i>' + 'Save(Enter)');
+            }
+            else {
+                var salaryfrom=$("#salaryFrom").val();
+                if (salaryfrom == '')
+                {
+                    alert("Please input SalaryFrom");
+                    return;
+                }
+                if (salaryfrom=='')
+                {
+                    alert("Please input valid SalaryFrom");
+                    return;
+                }
+                var salaryto = $("#salaryTo").val();
+                if (salaryto == '')
+                {
+                    alert("Please input SalaryTo");
+                    return;
+                }
+                var tax = $("#tax").val();
+                if(tax=='')
+                {
+                    alert("Please input Tax");
+                    return;
+                }
+                var a = { salaryFrom: salaryfrom, salaryTo: salaryto, taxpercent: tax };
+                $.ajax({
+                    url: "/Company/add_TaxScheme",
+                    datatype: "JSON",
+                    type: "POST",
+                    data: a,
+                    success:function(result)
+                    {
+                        var arrdata = JsonArraySpliter(result);
+                        for (var i = 0; i < arrdata.length; i++) {
+                            $("#list_taxScheme").append("<tr><td style='display:none'>"+arrdata[i].taxSID+
+                                                         "</td><td>" + arrdata[i].salaryFrom +
+                                                         "</td><td>" + arrdata[i].salaryTo +
+                                                        "</td><td>" + arrdata[i].taxPercent +
+                                                        "</td></tr>");
+                        }
+                        Clear_Input();
+                        $("#salaryFrom").focus();
+                       
+                    }
+                });
+
+            }
+        });
+
+        $("#btnRefresh").click(function (){
+            location.reload();
+        });
+        $("#Exit").click(function () {
+            var url = '@Url.Action("index", "Home")';
+            window.location.href = url;
+        });
+        $("#btnEdit").click(function () {
+            if ($(this).val() == 1) {
+                $("#btnExit").prop("disabled", true);
+                $("#btnDelete").prop("disabled", true);
+                $("#list_taxScheme tr").prop("disabled", true);
+                Enabled_Input();
+                $("#salaryFrom").focus();
+                $(this).text('').append('<i class="glyphicon glyphicon-edit"></i>' + 'Update(F3)');
+                $(this).val(0);
+
+            }
+            else {
+                var taxID = $(this).data("tid");
+                var salaryfrom = $("#salaryFrom").val();
+                if (salaryfrom == '') {
+                    alert("Please input SalaryFrom");
+                    return;
+                }
+                var salaryto = $("#salaryTo").val();
+                if (salaryto == '') {
+                    alert("Please input SalaryTo");
+                    return;
+                }
+                var tax = $("#tax").val();
+                if (tax == '') {
+                    alert("Please input Tax");
+                    return;
+                }
+                $.ajax({
+                    url: "/Company/Update_TaxScheme",
+                    datatype: "JSON",
+                    type: "POST",
+                    data: { taxID, salaryfrom, salaryto, tax },
+                    success:function(result)
+                    {
+                        $("#list_taxScheme tr").remove();
+                        var arrdata = JsonArraySpliter(result);
+                        for (var i = 0; i < arrdata.length; i++) {
+                            $("#list_taxScheme").append(
+                                                        "<tr><td style='display:none'>"+arrdata[i].taxSID+
+                                                         "</td><td>"+ arrdata[i].salaryFrom +
+                                                         "</td><td>" + arrdata[i].salaryTo +
+                                                        "</td><td>" + arrdata[i].taxPercent +
+                                                        "</td></tr>");
+                        }
+                        Clear_Input();
+                        Disable_Input();
+                        $("#btnEdit").prop("disabled", true);
+                        $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>' + 'Edit(F3)');
+                        $("#btnEdit").val(1);
+                        $("#btnDelete").prop("disabled", true);
+                        $("#btnNew").prop("disabled", false);
+                    }
+                });
+            }
+           
+        });
+        $("#btnCancel").click(function () {
+            $("#list_taxScheme tr").prop("disabled", false);
+            $("#list_taxScheme tr").css("background-color", "transparent");
+            Clear_Input();
+            Disable_Input();
+            $("#salaryFrom").focus();
+            $("#btnEdit").prop("disabled", true);
+            $("#btnDelete").prop("disabled", true);
+            $("#btnNew").prop("disabled", false);
+            $("#btnNew").val(1);
+            $("#btnNew").text('').append('<i class="glyphicon glyphicon-file"></i>' + 'New (F2)');
+            $("#btnEdit").val(1);
+            $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>' + 'Edit (F3)')
+            $("#btnExit").prop("disabled", false);
+        });
+        $("#Delete").click(function () {
+            var taxID = $(this).data("tid");
+          //  alert(taxID);
+            $.ajax({
+                url: "/Company/Delete_TaxScheme",
+                datatype: "JSON",
+                type: "POST",
+                data:{taxID},
+                success:function(result)
+                {
+                    if (result = "success") {
+                        DeleteRowbyColumnValue($("#list_taxScheme tr"), 0, taxID);
+                        Clear_Input();
+                        $("#btnNew").prop("disabled", false);
+                        Disabled_Button();
+                    }
+                }
+            });
+        });
+    });
+</script>

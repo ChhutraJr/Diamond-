@@ -1,0 +1,486 @@
+﻿
+@{
+    ViewBag.Title = "CreateUser";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+
+}
+<style>
+    .selectedRow{
+        background-color:#0094ff;
+    }
+    .unselectedRow{
+        background-color:#ffffff;
+    }
+    th{width:100px;
+     
+    }
+    td{
+        width:130px;
+    }
+    
+  
+
+</style>
+<script src="~/Content/MyJquery.js"></script>
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<script src="~/Content/jquery.dataTables.min.js"></script>
+<script src="~/Content/dataTables.bootstrap.min.js"></script>
+<link href="~/Content/dataTables.bootstrap.css" rel="stylesheet" />
+<h4>User</h4>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-12">
+          <table class="table table-bordered table-hover table-condensed tblSmall fixed" style="margin-bottom:0px" >
+              @*<table class="" style="margin-bottom:0px" >*@
+                  <thead>
+                      <tr class="row-highlight">
+                          <th>No</th>
+                          <th>User Name</th>
+                          <th>Group Name</th>
+                          <th>Active</th>
+                      </tr>
+                  </thead>
+              </table>
+            <div class="divTblHeight250" >
+                <table class="table table-bordered table-hover table-condensed tblSmall fixed" id="tbl">
+                    @*<table class="" id="tbl">*@
+                        <thead id="tblHead">
+                            <tr class="row-highlight"></tr>
+                            @*<tr class="row-highlight">*@
+                            @*<th>No</th>
+                <th>User Name</th>
+                <th>Group Name</th>
+                <th>Active</th>*@
+                            @*</tr>*@
+                        </thead>
+
+                        <tbody id="list_users" style="cursor:pointer">
+                            <tr>
+                                <td></td>
+                    <td></td>
+                    <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 MarginBottom-15">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label>User Information</label>
+                </div>
+                    <div class="panel-body">
+                        <form id="input_type">
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-2 lbSmall">User Name</label>
+                                <div class="col-sm-3 divPadL0">
+                                    <input class="form-control txtSmall" id="username" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-2 lbSmall">Password</label>
+                                <div class="col-sm-3 divPadL0">
+                                    <input class="form-control txtSmall" id="password" type="password">
+                                </div>
+                                <label class="col-sm-offset-1 col-sm-2">Comfirm Password</label>
+                                <div class="col-sm-3 divPadL0">
+                                    <input class="form-control txtSmall" id="confirm" type="password">
+                                </div>
+                            </div>
+                           
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-2 lbSmall">Group Name</label>
+                                <div class="col-sm-3 divPadL0">
+                                    <select class="form-control txtSmall" name="groupname" id="cbogroupName"></select>
+                                </div>
+                                <div class="col-sm-2 lbSmall">
+                                 
+                                    <button type="button" data-toggle="modal" data-target="#myModal" id="btnAddGroup">Add</button>
+                                </div>
+                                <label class="col-sm-1">Active</label>
+                                <div class="col-sm-2 divPadL0">
+                                    <input type="checkbox" value="1" id="checkbox">
+                                </div>
+                           </div>
+                        </form>
+                    </div>
+               
+                <div class="panel-footer divPadR0">
+                    <button type="button" class="btn btn-primary btnMarginBottom5" data-ruid="dd" id="btnEdit" value="1"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" data-ruid="dd" data-toggle="modal" data-target="#deleteModal" id="btnDel"><i class="glyphicon glyphicon-trash"></i>Delete(Del)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnAddUser" value="1" data-save="1"><i class="glyphicon glyphicon-save"></i> AddUsers(Enter)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnCancel"><i class="glyphicon glyphicon-remove"></i> Cancel(Esc)</button>
+                </div>
+                <!-- Modal Dialog-->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-sm" >
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                               <h4 class="modal-title center">Add Group Users</h4>
+                            </div>
+                            <div class="modal-body">
+                                <input type="text" class="form-control" placeholder="GroupName" id="txtAddGroup" /><br />
+                                <div class="row">
+                                    <div class="col-sm-offset-1 col-sm-2 center">
+                                        <button type="button" class="btn btn-primary btnMarginBottom5" id="btnAdd"><i class="glyphicon glyphicon-download-alt"></i> Add Group</button>
+                                    </div>
+                                    <div class="col-sm-offset-4 col-sm-2 center">
+                                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i>Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal Delete-->
+                <div class="modal fade" id="deleteModal" data-ruid="dd" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title center">Delete Users</h4>
+                            </div>
+                            <div class="modal-body">
+                              <h5 class="center">Do you really want to delete this user?</h5><br/>
+                                <div class="row">
+                                    <div class="col-sm-offset-2 col-sm-3 center">
+                                        <button type="button" class="btn btn-primary btnMarginBottom5" data-ruid="dd" id="btnDelUser" data-dismiss="modal">OK</button>
+                                    </div>
+                                    <div class="col-sm-offset-2 col-sm-4 center">
+                                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    function Disabled_Input()
+    {
+        $("#input_type input").prop("disabled", true);
+        $("#cbogroupName").prop("disabled", true);
+    }
+    function Enabled_Input()
+    {
+        $("#input_type input").prop("disabled", false);
+        $("#cbogroupName").prop("disabled", false);
+    }
+   
+    function LoadGroupName()
+    {
+        $.ajax({
+            url:"/Home/LoadgroupName",
+            datatype: "JSON",
+            type: "POST",
+            success: function (result) {
+                var arrdata = JsonArraySpliter(result);
+
+                for (var i = 0; i < arrdata.length; i++) {
+
+                    $("#cbogroupName").append("<option value='" + arrdata[i].groupID + "'>" + arrdata[i].groupName + "</option>");
+
+                }
+            }
+        });
+    }
+    function LoadAllUsers()
+    {
+        $.ajax({
+            url: "/Home/LoadUsers",
+            datatype: "JSON",
+            type: "POST",
+            success:function(result)
+            {
+                var arrdata = JsonArraySpliter(result);
+                for (var i = 0; i < arrdata.length; i++) {
+
+                    $("#list_users").append("<tr data-uid='" + arrdata[i].userID +"' "+ " data-uname='" + arrdata[i].userName+ "'" +
+                        " data-gname='" + arrdata[i].groupName + "'" +
+                        " data-active='" + arrdata[i].isActive + "'" +
+                        " data-passwd='" + arrdata[i].passwd + "'><td>"
+                        + arrdata[i].userID +
+                        "</td><td>" + arrdata[i].userName +
+                        "</td><td>" + arrdata[i].groupName +
+                         "</td><td>" + arrdata[i].isActive +
+                        "</td></tr>");
+                }
+            }
+        });
+    }
+    //clear all input data and disabled btnEdit btnDel btnCancel
+    function Pre_Disabled()
+    {
+        ClearFormInput();
+        $("#btnEdit").prop("disabled", true);
+        $("#btnDel").prop("disabled", true);
+        $("#btnCancel").prop("disabled", true);
+        $("#cbogroupName").prop("disabled", true);
+        $("#input_type input").prop("disabled", true);
+    }
+    //clear all input data
+    function ClearFormInput()
+    {
+        $("#input_type input").val('');
+        $("#cbogroupName").prop('selectedIndex', 0);
+        $('input[type=checkbox]').attr('checked', false);
+    }
+    function SelectRow()
+    {      
+        $(document).on("click", "#list_users tr", function () {
+            //Allow To click on table when data-save =1
+            $("#btnAddUser").prop("disabled", true);
+            if($("#btnAddUser").val()==1){
+            
+             $('#list_users tr').css("background-color", "transparent");
+                $(this).css("background-color", "#61aef7");
+
+                $("#input_type input").prop("disabled", true);
+                $("#btnEdit").prop("disabled", false);
+                $("#btnDel").prop("disabled", false);
+                $("#btnCancel").prop("disabled", false);
+
+
+                var id = $(this).data("uid");
+                var username = $(this).data("uname");
+                var groupname = $(this).data("gname");
+                var isActive = $(this).data("active");
+                var passwd = $(this).data("passwd");
+                //store id value to btnDel
+                $('#btnDel').data('ruid', id);
+                $('#btnEdit').data('ruid', id);
+                $('#btnDelUser').data('ruid', id);
+
+                $("#cbogroupName option").filter(function () {
+                    return $(this).text() == groupname;
+                }).prop('selected', true);
+
+                $("#username").val(username);
+                $("#password").val(passwd);
+                $("#confirm").val(passwd);
+                if (isActive == 1) {
+                    $("#checkbox").prop("checked", true);
+                } else {
+                    $("#checkbox").prop("checked", false);
+                }
+            }
+        });
+
+    }
+    
+</script>
+<script>
+    $(document).ready(function () {
+       
+        LoadGroupName();
+        LoadAllUsers();
+        SelectRow();
+        Pre_Disabled();
+      
+    });
+    $("#btnAddUser").click(function () {
+        if($(this).val()==1)
+        {
+            $('#list_users tr').css("background-color", "transparent");
+            $("#list_users tr").prop("disabled", true);
+            // alert($(this).val());
+            ClearFormInput();
+            Enabled_Input();
+            $("#username").focus();
+            $("#btnEdit").prop("disabled", true);
+            $("#btnDel").prop("disabled", true);
+            $("#btnCancel").prop("disabled", false);
+            $('table :input').attr('disabled', true);
+          
+           
+            $(this).text('').append('<i class="glyphicon glyphicon-save"></i>' + 'Save Users(Enter)');
+            $(this).val(0);
+        } else{
+          
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var confirm = $("#confirm").val();
+            var groupid = $('select[name=groupname] option:selected').val();
+            // alert(groupname);
+            if (username == "")
+            {
+                alert("Please Input Username");
+                $("#username").focus();
+               
+             return;
+            }
+           if(password=="")
+            {
+                alert("Please input Password");
+                $("#password").focus();
+                return;
+            }
+            if (confirm == "")
+            {
+                alert("Please input Confirm Password");
+                $("#confirm").focus();
+                return;
+            }
+            if(password != confirm)
+            {
+                alert("Password and Confirm Password is not the same");
+                $("#confirm").focus();
+                return;
+            }
+            if (isCheckBox($("#checkbox")) == 1)
+            {chk = 1;}
+            else { chk = 0; }
+        
+         
+                $.ajax({
+                    url: "/Home/SaveUser",
+                    datatype: "JSON",
+                    type: "POST",
+                    data: { username, password, groupid, chk },
+                    success: function (result) {
+                        var arrdata = JsonArraySpliter(result);
+                        for (var i = 0; i < arrdata.length; i++) {
+
+                            $("#list_users").append("<tr data-uid='" + arrdata[i].userID + "' " +" data-uname='" + arrdata[i].userName + "'" +
+                                " data-gname='" + arrdata[i].groupName + "'" +
+                                " data-active='" + arrdata[i].isActive + "'" +
+                                " data-passwd='" + arrdata[i].passwd + "'><td>"
+                                + arrdata[i].userID +
+                                "</td><td>" + arrdata[i].userName +
+                                "</td><td>" + arrdata[i].groupName +
+                                 "</td><td>" + arrdata[i].isActive +
+                                "</td></tr>");
+                        }
+                        alert("User is Saved!");
+                        $("#username").focus();
+                        ClearFormInput();
+                       //  $("#btnAddUser").text('').append('<i class="glyphicon glyphicon-save"></i>' + 'Add Users');
+                    }
+                });
+        }
+    });
+   
+    $("#btnDelUser").click(function () {
+        var id = $(this).data("ruid");
+        //alert(id);
+        $.ajax({
+            url: "/Home/DeleteUsers",
+            datatype: "JSON",
+            type: "POST",
+            data:{id},
+            success: function (result) {
+               
+                if (result.toString() == "success") {
+                    DeleteRowbyColumnValue($("#list_users tr"), 0, id);
+                    Pre_Disabled();
+                    $("#btnAddUser").prop("disabled", false);
+                }
+            }
+        });
+    });
+    $("#btnEdit").click(function () {
+        
+        
+        if ($(this).val() == 1)
+        {
+            Enabled_Input();
+            $("#username").focus();
+            $(this).text('').append('<i class="glyphicon glyphicon-edit"></i>'+'Update(F3)');
+            $(this).val(0);
+            $("#btnDel").prop("disabled", true);
+            $("#list_users tr").prop("disabled", true);
+        }
+        else {
+            var id = $(this).data("ruid");
+            //location.reload();
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var confirm = $("#confirm").val();
+
+            var groupId = $('select[name=groupname] option:selected').val();
+            isCheckBox($("#checkbox"));
+            if (isCheckBox($("#checkbox")) == 1) {
+                chk = 1;
+            }
+            else { chk = 0; }
+            if (password != confirm) {
+                alert("Password and Confirm Password is not the same!");
+            }
+            else {
+                    $.ajax({
+                        url: "/Home/EditUsers",
+                        datatype: "JSON",
+                        type: "POST",
+                        data: { id, username, password, groupId, chk },
+                        success: function (result) {
+                            //location.reload();
+                            $("#list_users tr").remove();
+                            var arrdata = JsonArraySpliter(result);
+                            for (var i = 0; i < arrdata.length; i++) {
+
+                                $("#list_users").append("<tr data-uid='" + arrdata[i].userID + "' " +
+                                    " data-uname='" + arrdata[i].userName + "'" +
+                                    " data-gname='" + arrdata[i].groupName + "'" +
+                                    " data-active='" + arrdata[i].isActive + "'" +
+                                    " data-passwd='" + arrdata[i].passwd + "'><td>"
+                                    + arrdata[i].userID +
+                                    "</td><td>" + arrdata[i].userName +
+                                    "</td><td>" + arrdata[i].groupName +
+                                     "</td><td>" + arrdata[i].isActive +
+                                    "</td></tr>");
+                            }
+                           
+                            $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>' + 'Edit(F3)');
+                            $("#btnEdit").val(1);
+                            $("#btnAddUser").prop("disabled", false);
+                            Pre_Disabled();
+                        }
+                    });
+                }
+        }
+    });
+   
+    $("#btnCancel").click(function () {
+        $('#list_users tr').css("background-color", "transparent");
+        $('#list_users tr').prop("disabled", false);
+        Pre_Disabled();
+        $("#btnAddUser").text('').append('<i class="glyphicon glyphicon-save"></i>' + 'AddUsers(Enter)');
+        $("#btnAddUser").val(1);
+        $("#btnAddUser").prop("disabled", false);
+        $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>' + 'Edit(F3)');
+        $("#btnEdit").val(1);
+    });
+    $("#btnAdd").click(function () {
+        var groupname = $("#txtAddGroup").val();
+        //alert(groupname);
+        if (groupname == "") {
+            alert("Please input Group Name");
+        }
+        else {
+            $.ajax({
+                url: "/Home/AddGroup",
+                datatype: "JSON",
+                type: "POST",
+                data: { groupname },
+                success: function (result) {
+                    var arrdata = JsonArraySpliter(result);
+                    for (var i = 0; i < arrdata.length; i++) {
+                        $("#cbogroupName").append("<option value='" + arrdata[i].groupID + "'>" + arrdata[i].groupName + "</option>");
+                    }
+                    alert("Group Name Saved");
+                    $("#txtAddGroup").val("");
+                }
+            });
+        }
+    });
+</script>

@@ -1,0 +1,143 @@
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\ApplicationInsights.config
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\csc.exe
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\vbc.exe
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\VBCSCompiler.exe
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Diamond HRP Pro 2017.dll.config
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Diamond HRP Pro 2017.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Diamond HRP Pro 2017.pdb
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.Web.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Helpers.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Mvc.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Razor.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Razor.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.Web.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Razor.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Razor.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Helpers.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Mvc.xml
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\obj\Debug\Diamond HRP Pro 2017.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\obj\Debug\Diamond HRP Pro 2017.pdb
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\MySql.Data.dll
+C:\Users\Sambath\Desktop\MVC\Diamond HRP Pro 2017\Diamond HRP Pro 2017\obj\Debug\Diamond HRP Pro 2017.csprojResolveAssemblyReference.cache
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\ApplicationInsights.config
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\csc.exe
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\System.Collections.Immutable.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\System.Reflection.Metadata.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\vbc.exe
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\VBCSCompiler.exe
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\VBCSCompiler.exe.config
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Diamond HRP Pro 2017.dll.config
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Diamond HRP Pro 2017.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Diamond HRP Pro 2017.pdb
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.Agent.Intercept.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.DependencyCollector.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.Web.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.WindowsServer.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.ApplicationInsights.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.Web.Infrastructure.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Helpers.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Mvc.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Razor.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Deployment.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Razor.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.DependencyCollector.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.Web.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.WindowsServer.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.ApplicationInsights.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Razor.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Deployment.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Razor.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Helpers.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Mvc.xml
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\obj\Debug\Diamond HRP Pro 2017.csprojResolveAssemblyReference.cache
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\obj\Debug\Diamond HRP Pro 2017.dll
+E:\DiamondHRPKunthea\Diamond HRP Pro 2017\Diamond HRP Pro 2017\obj\Debug\Diamond HRP Pro 2017.pdb
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\ApplicationInsights.config
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\csc.exe
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\System.Collections.Immutable.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\System.Reflection.Metadata.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\vbc.exe
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\VBCSCompiler.exe
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\roslyn\VBCSCompiler.exe.config
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Diamond HRP Pro 2017.dll.config
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Diamond HRP Pro 2017.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Diamond HRP Pro 2017.pdb
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.Agent.Intercept.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.DependencyCollector.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.PerfCounterCollector.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.ServerTelemetryChannel.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.Web.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.WindowsServer.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.ApplicationInsights.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.Web.Infrastructure.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\MySql.Data.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Helpers.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Mvc.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Razor.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Deployment.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Razor.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.DependencyCollector.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.Web.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.AI.WindowsServer.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.ApplicationInsights.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\MySql.Data.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Razor.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Deployment.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Webpages.Razor.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Helpers.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\System.Web.Mvc.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\obj\Debug\Diamond HRP Pro 2017.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\obj\Debug\Diamond HRP Pro 2017.pdb
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Newtonsoft.Json.dll
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\bin\Newtonsoft.Json.xml
+E:\DiamondHRPPro\Diamond HRP Pro 2017\Diamond HRP Pro 2017\Diamond HRP Pro 2017\obj\Debug\Diamond HRP Pro 2017.csprojResolveAssemblyReference.cache

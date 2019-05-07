@@ -1,0 +1,434 @@
+﻿
+@{
+    ViewBag.Title = "Departement";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<link href="~/Content/ToggleTreeView.css" rel="stylesheet" />
+
+<script src="~/Scripts/ClientStorage.js"></script>
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<script src="~/Content/MyJquery.js"></script>
+<div id="frmDepartment">
+    <h4>Departement</h4>
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="just-padding" style="width:20em;background-color:#808080;height:240px;overflow-y:scroll">
+                    <ul>
+                        @*<li class="list-main-item" id="sub1" onclick="ToggleSidebarMenu($(this),'sub1')">
+                            <a href="#" class="main-sidebar-item">
+                                <span class="fa fa-chevron-right"></span>
+                                AAAA
+                            </a>
+                            <ul class="sub-sidebar-menu" id="sub1_1">
+                                <li class="list-main-item" onclick="ToggleSidebarMenu($(this),'sub1_1')">
+                                    <a href="#" class="main-sidebar-item">
+                                        <span class="fa fa-chevron-right"></span>
+                                        AAAA
+                                    </a>
+                                    <ul class="sub-sidebar-menu" id="sub1_1_1">
+                                        <li class="list-main-item" onclick="ToggleSidebarMenu($(this),'sub1/sub1_1','sub1_1_1')">
+                                            <a href="#" class="main-sidebar-item">
+                                                <span class="fa fa-chevron-right"></span>
+                                                AAAA
+                                            </a>
+                                            <ul class="sub-sidebar-menu" id="sub1_1_1"></ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>*@ 
+                        <li class="list-main-item" onclick="ToggleSidebarMenu($(this),child)" id="parent">
+                            <a href="#" class="main-sidebar-item">
+                                <span class="fa fa-chevron-right"> </span>
+                                Product
+                            </a>
+                            <ul class="sub-sidebar-menu" id="child">
+                                <li><a href="#"><i class="fa fa-plus-square-o"></i>Product List </a></li>
+                                <li><a href="#"><i class="fa fa-list-ul"></i> Product List </a></li>
+                                <li><a href="#"><i class="fa fa-sitemap"></i> Manage Product</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <label>Detail Departement</label>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form id="form_input">
+                            <div class="row">
+                                <label class="col-sm-5 lbPadTop6PadBot6">Departement Name</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control input-sm" id="deptName" type="text">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-5 lbPadTop6PadBot6">Parent Departement</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control input-sm" id="parentDept" type="text">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-5 lbPadTop6PadBot6">Departement Code</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control input-sm" id="deptCode" type="text">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-5 lbPadTop6PadBot6">Used in Report Grouping</label>
+                                <div class="checkbox col-sm-1">
+                                    <label><input type="checkbox" value="1" id="chkReport"></label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="col-sm-5 lbPadTop6PadBot6">Departement Type</label>
+                                <div class="col-sm-6">
+                                    <select class="form-control" name="deptType" id="cboDeptType"></select>
+                                </div>
+
+                                <button type="button" data-toggle="modal" data-target="#myModal" style="margin:1px">Add</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Dialog-->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title center">Add Department Type</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="Department Type" id="txtDeptType" /><br />
+                    <input type="text" class="form-control" placeholder="Department Description" id="txtDeptDesc" /><br />
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-sm-2 center">
+                            <button type="button" class="btn btn-primary btnMarginBottom5" id="btnAddDeptType"><i class="glyphicon glyphicon-download-alt"></i> Add</button>
+                        </div>
+                        <div class="col-sm-offset-4 col-sm-2 center">
+                            <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="Modal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title center">Add Department Type</h4>
+                </div>
+                <div class="modal-body">
+                    <h4>Do you really want to delete?</h4><br/>
+                    <div class="row">
+                        <div class="col-sm-offset-1 col-sm-2 center">
+                            <button type="button" class="btn btn-primary btnMarginBottom5" id="btnOK"><i class="glyphicon glyphicon-download-alt"></i> OK</button>
+                        </div>
+                        <div class="col-sm-offset-4 col-sm-2 center">
+                            <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal"><i class="glyphicon glyphicon-remove"></i>Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-12">
+            <button type="button" class="btn btn-primary btnMarginBottom5" id="btnNew" value="1"><i class="glyphicon glyphicon-file"></i> New (F2)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5" id="btnEdit" value="1"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5" id="btnDel"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5" id="btnSearch"><i class="glyphicon glyphicon-search"></i> Search (F4)</button>
+            @* <button type="button" class="btn btn-primary btnMarginBottom5" id="btnSave"><i class="glyphicon glyphicon-save"></i> Save (Enter)</button>*@
+            <button type="reset" class="btn btn-primary btnMarginBottom5" id="btnCancel"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5" id="btnRefresh"><i class="glyphicon glyphicon-refresh"></i> Refresh (F5)</button>
+            <button type="button" class="btn btn-primary btnMarginBottom5" id="btnExit" data-toggle="modal" data-target="#exit"><i class="glyphicon glyphicon-off"></i> Exit (Alt+F4)</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exit" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Exit Form</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to Exit?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="Exit" data-dismiss="modal">Exit</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function LoadDeptType() {
+        $.ajax({
+            url: "/Company/load_Depttype",
+            datatype: "JSON",
+            type: "POST",
+            success: function (result) {
+                var arrdata = JsonArraySpliter(result);
+
+                for (var i = 0; i < arrdata.length; i++) {
+                 
+                    $("#cboDeptType").append("<option value='" + arrdata[i].deptType + "'>" + arrdata[i].deptTypeDesc + "</option>")
+                    
+                }
+               
+            }
+        });
+    }
+    function Disabled_Input()
+    {
+        $("#form_input input").prop("disabled", true);
+        $("#cboDeptType").prop("disabled", true);
+    }
+    function Enabled_Input()
+    {
+        $("#form_input input").prop("disabled", false);
+      //  $("#deptCode").prop("disabled", true);
+       // $("#parentDept").prop("disabled", true);
+        $("#cboDeptType").prop("disabled", false);
+        $("#deptName").focus();
+    }
+    function Disabled_Button()
+    {
+        $("#btnEdit").prop("disabled", true);
+        $("#btnDel").prop("disabled", true);
+        $("#btnSearch").prop("disabled", true);
+        $("#btnCancel").prop("disabled", true);
+       
+    }
+    function Clear_Form()
+    {
+        $("#deptName").val("");
+        $("#parentDept").val("");
+        $("#deptCode").val("");
+        $('input[type=checkbox]').attr('checked', false);
+        $("#cboDeptType").prop('selectedIndex', 0);
+    }
+    function LoadParentList()
+    {
+        $.ajax({
+            url: "/Company/loadParentList",
+            datatype: "JSON",
+            type: "POST",
+            success:function(result)
+            {
+                var arrdata = JsonArraySpliter(result);
+                for (var i = 0; i < arrdata.length; i++) {
+                   
+                    //$("#parent").append("<li class='list-main-item' onclick='ToggleSidebarMenu($(this),'"+child+"')>" +
+                    //                    "<a href='#' class='main-sidebar-item'>" +
+                    //                    "<span class='fa fa-chevron-right'></span>" + arrdata[i].deptName + "</a>" +
+                                   
+                         
+                    //                    "<ul class='sub-sidebar-menu' id='" + child + "'>" +
+                    //                    "<li><a href='#'><i class='fa fa-plus-square-o'></i>" + arrdata[i].deptName + "</a></li>" +
+                    //                    "</ul>"+
+                    //    "</li>");
+                }
+            }
+        });
+    }
+</script>
+<script>
+ //Parent and Child Department
+    $(".sub-sidebar-menu").hide();
+    function ToggleSidebarMenu(li,id) {
+        $(".sub-sidebar-menu").hide(200);
+        var parent = $('#' + id).parent().prop("tagName").toLowerCase();
+        var a = $('#' + id).prev().find('span');
+        $(parent + '.list-main-item span').each(function () {
+                $(this).removeAttr('class');
+                $(this).addClass('fa fa-chevron-right');
+        });
+        $('#' + id).toggle(200);
+       
+    }
+
+    //function toggleHover() {
+    //    var nav = $("#shower");
+    //    var subnav = $(".just-padding");
+    //    if (nav.hasClass('d-sm-block')) {
+    //        nav.removeClass('d-sm-block');
+    //        subnav.hide('slide');
+    //    }
+    //    else {
+    //        nav.addClass('d-sm-block');
+    //        subnav.show('slide');
+    //    }
+    //}
+    $(document).ready(function () {
+        LoadDeptType();
+        Disabled_Input();
+        Disabled_Button();
+        LoadParentList();
+        $("#btnEdit").prop("disabled", false);
+
+
+        $(function () {
+            $('.list-main-item').on('click', function () {
+                $('.fa', this)
+                  .toggleClass('fa-chevron-right')
+                  .toggleClass('fa-chevron-down');
+            });
+        });
+
+        $(".sub-sidebar-menu li").click(function () {
+            //alert($("li").index($(this)) + "Sub");
+            SetSideBarSubActiving($("li").index($(this)));
+            $(this).addClass('active-subside-menu');
+        });
+
+    });
+    $("#btnNew").click(function () {
+        $("#btnCancel").prop("disabled", false);
+        if ($(this).val() == 1) {
+            Enabled_Input();
+            $(this).val(0);
+            $(this).text('').append('<i class="glyphicon glyphicon-save"></i>' + 'Save(Enter)')
+        }
+        else {
+            
+            var deptname = $("#deptName").val();
+            if (deptname == "")
+            {
+                alert("Please input Department Name");
+            }
+            var parentdept = $("#parentDept").val();
+            if (parentdept == "") {
+                pa_dept = 0;
+            }
+            else pa_dept = parentdept;
+            var deptcode = $("#deptCode").val();
+            if (deptcode == "")
+            {
+                alert("Please input Department Code");
+            }
+            (isCheckBox($("#chkReport")));
+            if (isCheckBox($("#chkReport")) == 1) {
+                chk = 1;
+            }
+            else { chk = 0; }
+          
+            var deptType = $('select[name=deptType] option:selected').val();//if want as text is .text();
+          
+            $.ajax({
+                url: "/Company/Insert_Dept",
+                datatype: "JSON",
+                type: "POST",
+                data: { deptname, pa_dept, deptcode, chk, deptType },
+                success: function (result) {
+                    var arrdata = JsonArraySpliter(result);
+
+                    for (var i = 0; i < arrdata.length; i++) {
+                        $("#parent").append("<li>" + arrdata[i].deptName + "</li>")
+                    }
+                    Clear_Form();
+                    $("#deptName").focus();
+                }
+            });
+        }
+    });
+    $("#btnAddDeptType").click(function () {
+        $("#cboDeptType").prop("disabled", false);
+        var dept_type = $("#txtDeptType").val();
+        var dept_desc = $("#txtDeptDesc").val();
+        $.ajax({
+            url: "/Company/addDeptype",
+            datatype: "JSON",
+            type: "POST",
+            data: { dept_type,dept_desc},
+            success:function(result)
+            {
+               
+                $("#cboDeptType").children('option').remove();
+                var arrdata = JsonArraySpliter(result);
+
+                for (var i = 0; i < arrdata.length; i++) {
+                  
+                    $("#cboDeptType").append("<option>" + arrdata[i].deptTypeDesc + "</option>")
+                }
+                $("#txtDeptType").val("");
+                $("#txtDeptDesc").val("");
+            }
+        });
+    });
+    $("#btnCancel").click(function () {
+        Clear_Form();
+    });
+    $("#btnOK").click(function () {
+       
+    });
+    $("#btnEdit").click(function () {
+        if ($(this).val() == 1)//update
+        {
+            Enabled_Input();
+            $(this).val(0);//save update
+             $(this).text('').append('<i class="glyphicon glyphicon-save"></i>' + 'Save Update')
+        }
+        else {
+           
+        var deptname = $("#deptName").val();
+        if (deptname == "") {
+            alert("Please input Department Name");
+        }
+        var parentdept = $("#parentDept").val();
+        if (parentdept == "") {
+            pa_dept = 0;
+        }
+        else pa_dept = parentdept;
+        var deptcode = $("#deptCode").val();
+        if (deptcode == "") {
+            alert("Please input Department Code");
+        }
+        (isCheckBox($("#chkReport")));
+        if (isCheckBox($("#chkReport")) == 1) {
+            chk = 1;
+        }
+        else { chk = 0; }
+        var deptType = $('select[name=deptType] option:selected').val();//if want as text is .text();
+        $.ajax({
+            url: "/Company/updateDept",
+            datatype: "JSON",
+            type: "POST",
+            data:{deptname,pa_dept,deptcode,chk,deptType},
+            success:function(result) 
+            {
+                var arrdata = JsonArraySpliter(result);
+
+                for (var i = 0; i < arrdata.length; i++) {
+                    $("#parent").append("<li>" + arrdata[i].deptName + "</li>")
+                }
+                Clear_Form();
+            }
+            
+        });
+        }
+    });
+    $("#Exit").click(function () {
+        var url = '@Url.Action("index", "Home")';
+        window.location.href = url;
+    });
+    $("#btnRefresh").click(function () {
+        location.reload();
+    });
+</script>

@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "GroupAccessTemplate";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<h4>Group Access Template</h4>
+
+<div class="form-horizontal">
+    <div class="row">
+     <div class="col-sm-6 MarginBottom-15">
+         <div class="panel panel-default">
+             <div class="panel-heading">
+                 <label>Create Group Name</label>
+             </div>
+             <div class="panel-body">
+                 <div class="row">
+                     <div class="col-sm-3 divPadR0">
+                         <label class="lbPadTop6PadBot6">Group Name</label>
+                     </div>
+                     <div class="col-sm-6">
+                         <input class="form-control" id="JopPosName" type="text">
+                     </div>
+                     <div class="col-sm-3 divPadL0">
+                         <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Save</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label>User Permission</label>
+                </div>
+                <div class="panel-body divPadBottom0">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="col-sm-3 divPadR0">
+                                    <label class="lbPadTop6PadBot6">Group Name</label>
+                                </div>
+                                <div class="col-sm-6">
+                                    <select class="form-control" id="Group">
+                                        <option>1</option>
+                                        <option>2</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3 divPadL0">
+                                    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <label>Application Feature Access</label>
+                                    <div class="divTblHeight150">
+                                        <table class="table table-striped table-bordered table-hover table-condensed tblSmall">
+                                            <thead>
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Access Level</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>ta</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ka</td>
+                                                    <td>1</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label class="lbPadTop6PadBot6">Description</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="DesApplication">
+                                                <option>1</option>
+                                                <option>2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <label>Report Feature Access</label>
+                                    <div class="divTblHeight150">
+                                        <table class="table table-striped table-bordered table-hover table-condensed tblSmall">
+                                            <thead>
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Access Level</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>ta</td>
+                                                    <td>1</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ka</td>
+                                                    <td>1</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label class="lbPadTop6PadBot6">Description</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="DesApplication">
+                                                <option>1</option>
+                                                <option>2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-save"></i> Save (Enter)</button>
+                    <button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

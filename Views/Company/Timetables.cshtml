@@ -1,0 +1,228 @@
+﻿
+@{
+    ViewBag.Title = "Timetables";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<h4>Timetables</h4>
+
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="divTblHeight150">
+                <table class="table table-striped table-bordered table-hover table-condensed tblSmall">
+                    <thead>
+                        <tr>
+                            <th>Timetable Name</th>
+                            <th>Duty On</th>
+                            <th>Duty Off</th>
+                            <th>Must In</th>
+                            <th>Must Out</th>
+                            <th>OverTime</th>
+                            <th>Cross Night</th>
+                            <th>Duration</th>
+                            <th>Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label>Timetable Detail</label>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Timetable Name</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control txtSmall" id="JopPosName" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Duty On</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="time">
+                                </div>
+                                <div class="checkbox col-sm-1 divPadL0">
+                                    <label><input type="checkbox" value=""></label>
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Duty Off</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="time">
+                                </div>
+                                <div class="checkbox col-sm-1 divPadL0">
+                                    <label><input type="checkbox" value=""></label>
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Earlies In Time</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="time">
+                                </div>
+                                <div class="checkbox col-sm-1 divPadL0">
+                                    <label><input type="checkbox" value=""></label>
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Latest In Time</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="time">
+                                </div>
+                                <div class="checkbox col-sm-1 divPadL0">
+                                    <label><input type="checkbox" value=""></label>
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Earlies Out Time</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="time">
+                                </div>
+                                <div class="checkbox col-sm-1 divPadL0">
+                                    <label><input type="checkbox" value=""></label>
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Latest Out Time</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="time">
+                                </div>
+                                <div class="checkbox col-sm-1 divPadL0">
+                                    <label><input type="checkbox" value=""></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Late In Tolerance (Minutes)</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control txtSmall" id="JopPosName" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Early Out Tolerance (Minutes)</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Early In Round Off (Minutes)</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Late Out Round Off (Minutes)</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Salary Coefficient</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Meal Allowance</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Work Duration</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Holiday Coefficient</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="text">
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-5 lbSmall">Holiday Coefficient</label>
+                                <div class="col-sm-4">
+                                    <input class="form-control txtSmall" id="JopPosKhmer" type="text">
+                                </div>
+                                <div class="col-sm-3 divPadL0">
+                                    <select class="form-control txtSmall" id="HoliCo">
+                                        <option>Day</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 divPadL0 divPadR0">
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-9 lbSmall">Must Clock In</label>
+                                <div class="checkbox col-sm-2" style="margin-top: 0px; top: 4px; margin-left: 0px; left: 0px;">
+                                    <label><input type="checkbox" value="" style="top: 0px;margin-top: 0px;"></label>
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-9 lbSmall">Must Clock Out</label>
+                                <div class="checkbox col-sm-2" style="margin-top: 0px; top: 4px; margin-left: 0px; left: 0px;">
+                                    <label><input type="checkbox" value="" style="top: 0px;margin-top: 0px;"></label>
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-9 lbSmall">Is Overtime</label>
+                                <div class="checkbox col-sm-2" style="margin-top: 0px; top: 4px; margin-left: 0px; left: 0px;">
+                                    <label><input type="checkbox" value="" style="top: 0px;margin-top: 0px;"></label>
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-9 lbSmall">Is Cross Night</label>
+                                <div class="checkbox col-sm-2" style="margin-top: 0px; top: 4px; margin-left: 0px; left: 0px;">
+                                    <label><input type="checkbox" value="" style="top: 0px;margin-top: 0px;"></label>
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <label class="col-sm-9 lbSmall">Last Timetable of Day</label>
+                                <div class="checkbox col-sm-2" style="margin-top: 0px; top: 4px; margin-left: 0px; left: 0px;">
+                                    <label><input type="checkbox" value="" style="top: 0px;margin-top: 0px;"></label>
+                                </div>
+                            </div>
+                            <div class="row div-Sm-Magin">
+                                <div class="col-sm-9 divPadL0">
+                                    <input class="form-control txtSmall" id="repPath" type="text">
+                                </div>
+                                <button type="button" class="col-sm-2 btn btn-primary btnSmall">...</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer divPadR0">
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-file"></i> New (F2)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-search"></i> Search (F4)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-save"></i> Save (Enter)</button>
+                    <button type="reset" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-refresh"></i> Refresh (F5)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5"><i class="glyphicon glyphicon-off"></i> Exit (Alt+F4)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

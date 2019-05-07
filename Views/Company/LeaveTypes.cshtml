@@ -1,0 +1,502 @@
+﻿
+@{
+    ViewBag.Title = "LeaveTypes";
+    Layout = "~/Views/Home/HomeHeader.cshtml";
+}
+<link href="~/Content/StyleHRP.css" rel="stylesheet" />
+<script src="~/Content/MyJquery.js"></script>
+<h4>Leave Types</h4>
+<div class="form-horizontal">
+    <div class="row">
+        <div class="col-sm-12 div-Sm-Magin">
+            <div class="divTblHeight220">
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <thead>
+                        <tr class="row-highlight">
+                            <th style="display:none">ID</th>
+                            <th>Leave Name</th>
+                            <th>Count Balance</th>
+                            <th>Salary Coefficient</th>
+                            <th>Pay Never Absent</th>
+                            <th>Yearly Leave Allow</th>
+                            <th>Allow Take Leave</th>
+                            <th>Duration</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list_leavetype" style="cursor:pointer">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <label>Leave Type Detail</label>
+                </div>
+                <div class="panel-body" id="input_type">
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Leave Name</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="leaveName" type="text">
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Count Leave Balance</label>
+                        <div class="checkbox col-sm-4">
+                            <label><input type="checkbox" id="chklBalance" value=""></label>
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Salary Coefficient</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="salaryCoefficient" type="number">
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Pay Never Absent</label>
+                        <div class="checkbox col-sm-4">
+                            <label><input type="checkbox" id="chkpaynoAbsent" value=""></label>
+                        </div>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Yearly Leave Allow</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="yearLeaveAllow" type="number">
+                        </div>
+                        <label>Duration In Day(s)</label>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Allow Take Leave after</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="allowtakeLeave" type="number">
+                        </div>
+                        <label>months</label>
+                    </div>
+                    <div class="row div-Sm-Magin">
+                        <label class="col-sm-2 control-label">Maximum Leave Allowance</label>
+                        <div class="col-sm-4">
+                            <input class="form-control input-sm" id="max_leaveAllow" type="number">
+                     </div>
+                        <label>  Duration In Day(s) One Time</label>
+                    </div>
+                </div>
+                <div class="panel-footer divPadR0">
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnNew" value="1"><i class="glyphicon glyphicon-file"></i> New (F2)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnEdit" value="1"><i class="glyphicon glyphicon-edit"></i> Edit (F3)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnDelete" data-toggle="modal" data-target="#delete"><i class="glyphicon glyphicon-trash"></i> Delete (Del)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnSearch"><i class="glyphicon glyphicon-search"></i> Search (F4)</button>
+                    <button type="reset" class="btn btn-primary btnMarginBottom5" id="btnCancel"><i class="glyphicon glyphicon-remove"></i> Cancel (Esc)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnRefresh"><i class="glyphicon glyphicon-refresh"></i> Refresh (F5)</button>
+                    <button type="button" class="btn btn-primary btnMarginBottom5" id="btnExit" data-toggle="modal" data-target="#exit"><i class="glyphicon glyphicon-off"></i> Exit (Alt+F4)</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+<div class="modal fade" id="exit" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Exit Form</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to Exit?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="Exit" data-dismiss="modal">Exit</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="delete" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title center">Delete Form</h4>
+            </div>
+            <div class="modal-body">
+                <h5 class="center">Do you really want to delete?</h5><br />
+                <div class="row">
+                    <div class="col-sm-offset-2 col-sm-3 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" id="Delete" data-dismiss="modal">Exit</button>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-4 center">
+                        <button type="button" class="btn btn-primary btnMarginBottom5" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    function Disabled_Button()
+    {
+        $("#btnEdit").prop("disabled", true);
+        $("#btnDelete").prop("disabled", true);
+        $("#btnSearch").prop("disabled", true);
+        $("#btnCancel").prop("disabled", true);
+    }
+    function Disabled_Input()
+    {
+        $("#input_type input").prop("disabled", true);
+    }
+    function Enabled_Input()
+    {
+        $("#input_type input").prop("disabled", false);
+    }
+    function Clear_Input() {
+        $("#input_type input").val('');
+        
+         $('input[type=checkbox]').attr('checked', false);
+    }
+    function SelectedRow()
+    {
+        $(document).on("click", "#list_leavetype tr", function () {
+            $('#list_leavetype tr').css("background-color", "transparent");
+            $(this).css("background-color", "#61aef7");
+
+            var lid = $(this).data("lid");
+            var lname = $(this).data("lname");
+            var lbalance = $(this).data("lbalance");
+            var scoefficient = $(this).data("scoefficient");
+            var paynoabsent = $(this).data("paynoabsent");
+            var yearlallow = $(this).data("yearlallow");
+            var allowtakeleave = $(this).data("allowtakeleave");
+            var duration = $(this).data("duration");
+            //alert(lbalance);
+            
+            $("#btnEdit").prop("disabled", false);
+            $("#btnEdit").data("lid", lid);
+            $("#btnDelete").prop("disabled", false);
+            $("#Delete").data("lid", lid);
+            $("#btnNew").prop("disabled", true);
+            $("#btnCancel").prop("disabled", false);
+
+            $("#leaveName").val(lname);
+            $("#salaryCoefficient").val(scoefficient);
+            $("#yearLeaveAllow").val(yearlallow);
+            $("#allowtakeLeave").val(allowtakeleave);
+            $("#max_leaveAllow").val(duration);
+            if (lbalance ==1) {
+                $("#chklBalance").prop("checked", true);
+            } else {
+                $("#chklBalance").prop("checked", false);
+            }
+            if(paynoabsent==1)
+            {
+                $("#chkpaynoAbsent").prop("checked", true);
+            } else {
+                $("#chkpaynoAbsent").prop("checked", false);
+            }
+            
+        });
+    }
+    function Load_LeaveType()
+    {
+        $.ajax({
+            url: "/Company/Load_LeaveType",
+            datatype: "JSON",
+            type: "POST",
+            success:function(result)
+            {
+                var arrdata = JsonArraySpliter(result);
+                for (var i = 0; i < arrdata.length; i++) {
+                    if (arrdata[i].countLeaveBalance == 1) {
+                        a = "Yes";
+                    }
+                    else {
+                        a = "No";
+                    }
+                    if (arrdata[i].payNeverAbsent == 1) {
+                        b = "Yes";
+                    }
+                    else {
+                        b = "No";
+                    }
+                    $("#list_leavetype").append("<tr data-lid='" + arrdata[i].leaveID + "'" +
+                                            "data-lname='" + arrdata[i].leaveName + "'" +
+                                            "data-lbalance='" + arrdata[i].countLeaveBalance + "'" +
+                                            "data-scoefficient='" + arrdata[i].salaryCoefficient + "'" +
+                                            "data-paynoabsent='" + arrdata[i].payNeverAbsent + "'" +
+                                            "data-yearlallow='" + arrdata[i].yearlyLeaveAllow + "'" +
+                                            "data-allowtakeleave='" + arrdata[i].allowTakeLeave + "'" +
+                                            "data-duration='" + arrdata[i].duration + "'" +
+
+                                     "><td style='display:none'>" + arrdata[i].leaveID +
+                                                    "<td>" + arrdata[i].leaveName + "</td>" +
+                                                    "<td>" + a + "</td>" +
+                                                    "<td>" + arrdata[i].salaryCoefficient + "</td>" +
+                                                    "<td>" + b + "</td>" +
+                                                    "<td>" + arrdata[i].yearlyLeaveAllow + "</td>" +
+                                                    "<td>" + arrdata[i].allowTakeLeave + "</td>" +
+                                                    "<td>" + arrdata[i].duration + "</td>" +
+                                            "</td></tr>");
+
+                }
+            }
+        });
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        Disabled_Button();
+        Disabled_Input();
+        SelectedRow();
+        Load_LeaveType();
+        
+        $("#btnNew").click(function () {
+            if($(this).val()==1)
+            {
+                $("#btnCancel").prop("disabled", false);
+                $('#list_leavetype tr').css("background-color", "transparent");
+                Enabled_Input();
+                $("#leaveName").focus();
+                $("#btnCancel").prop("disabled", false);
+                $("#btnExit").prop("disabled", true);
+              
+                $("#list_leavetype tr").prop("disabled", true);
+                $(this).val(0);
+                $(this).text('').append('<i class="glyphicon glyphicon-save"></i>' + 'Save(Enter)');
+            }
+            else {
+                var LeaveName = $("#leaveName").val();
+                if (LeaveName == '')
+                {
+                    alert("Please input Leave Name");
+                    return;
+                }
+                //checkbox Balance
+                if (isCheckBox($("#chklBalance")) == 1)
+                { chkBalance =1 ; }
+                else { chkBalance = 0; }
+                var Salary_Coeffiecient = $("#salaryCoefficient").val();
+                if (Salary_Coeffiecient == '')
+                {
+                    alert("Please input Salary Coefficient");
+                    return;
+                }
+                //checkbox paynoabsent
+                if(isCheckBox($("#chkpaynoAbsent"))==1)
+                { chkPay = 1; }
+                else { chkPay = 0; }
+                var YearLeaveAllow = $("#yearLeaveAllow").val();
+                if (YearLeaveAllow == '')
+                {
+                    alert("Please input Year Leave Allow");
+                    return;
+                }
+                var AllowTakeLeave = $("#allowtakeLeave").val();
+                if (AllowTakeLeave == '')
+                {
+                    alert("Please input Allow Take Leave");
+                    return;
+                }
+                var MaxLeave = $("#max_leaveAllow").val();
+                if(MaxLeave=='')
+                {
+                    alert("Please input Max Leave Allow");
+                    return;
+                }
+                $.ajax({
+                    url: "/Company/Add_LeaveType",
+                    datatype: "JSON",
+                    type: "POST",
+                    data: { LeaveName, chkBalance, Salary_Coeffiecient, chkPay, YearLeaveAllow, AllowTakeLeave, MaxLeave },
+                    success:function(result)
+                    {
+                        var arrdata = JsonArraySpliter(result);
+                        for (var i = 0; i < arrdata.length; i++) {
+                            if (arrdata[i].countLeaveBalance == 1) {
+                                a = "Yes";
+                            }
+                            else {
+                                a = "No";
+                            }
+                            if (arrdata[i].payNeverAbsent == 1) {
+                                b = "Yes";
+                            }
+                            else {
+                                b = "No";
+                            }
+                            $("#list_leavetype").append("<tr data-lid='" + arrdata[i].leaveID + "'" +
+                                                    "data-lname='" + arrdata[i].leaveName + "'" +
+                                                    "data-lbalance='" + arrdata[i].countLeaveBalance + "'" +
+                                                    "data-scoefficient='" + arrdata[i].salaryCoefficient + "'" +
+                                                    "data-paynoabsent='" + arrdata[i].payNeverAbsent + "'" +
+                                                    "data-yearlallow='" + arrdata[i].yearlyLeaveAllow + "'" +
+                                                    "data-allowtakeleave='" + arrdata[i].allowTakeLeave + "'" +
+                                                    "data-duration='" + arrdata[i].duration + "'" +
+
+                                             "><td style='display:none'>" + arrdata[i].leaveID +
+                                                            "<td>" + arrdata[i].leaveName + "</td>" +
+                                                            "<td>" + a+ "</td>" +
+                                                            "<td>" + arrdata[i].salaryCoefficient + "</td>" +
+                                                            "<td>" + b + "</td>" +
+                                                            "<td>" + arrdata[i].yearlyLeaveAllow + "</td>" +
+                                                            "<td>" + arrdata[i].allowTakeLeave + "</td>" +
+                                                            "<td>" + arrdata[i].duration + "</td>" +
+                                                    "</td></tr>");
+                            
+                        }
+                        Clear_Input();
+                       
+                        $("#leaveName").focus();
+                    }
+                    
+                })
+            }
+        });
+        $("#btnEdit").click(function () {
+            if ($(this).val() == 1) {
+                Enabled_Input();
+                $("#leaveName").focus();
+                $(this).val(0);
+                $(this).text('').append('<i class="glyphicon glyphicon-edit"></i>', ' Update (F3)');
+                $("#btnExit").prop("disabled", true);
+                $("#list_leavetype tr").prop("disabled", true);
+                $("#btnDelete").prop("disabled", true);
+            }
+            else {
+                var id = $(this).data("lid");
+
+                var LeaveName = $("#leaveName").val();
+                if (LeaveName == '') {
+                    alert("Please input Leave Name");
+                    return;
+                }
+                //checkbox Balance
+                if (isCheckBox($("#chklBalance")) == 1)
+                { chkBalance = 1; }
+                else { chkBalance = 0; }
+                var Salary_Coeffiecient = $("#salaryCoefficient").val();
+                if (Salary_Coeffiecient == '') {
+                    alert("Please input Salary Coefficient");
+                    return;
+                }
+                //checkbox paynoabsent
+                if (isCheckBox($("#chkpaynoAbsent")) == 1)
+                { chkPay = 1; }
+                else { chkPay = 0; }
+                var YearLeaveAllow = $("#yearLeaveAllow").val();
+                if (YearLeaveAllow == '') {
+                    alert("Please input Year Leave Allow");
+                    return;
+                }
+                var AllowTakeLeave = $("#allowtakeLeave").val();
+                if (AllowTakeLeave == '') {
+                    alert("Please input Allow Take Leave");
+                    return;
+                }
+                var MaxLeave = $("#max_leaveAllow").val();
+                if (MaxLeave == '') {
+                    alert("Please input Max Leave Allow");
+                    return;
+                }
+                //  alert(id + "," + LeaveName + "," + chkBalance + "," + Salary_Coeffiecient + "," + chkPay + "," + YearLeaveAllow + "," + AllowTakeLeave + "," + MaxLeave);
+                $.ajax({
+                    url: "/Company/Edit_LeaveType",
+                    datatype: "JSON",
+                    type: "POST",
+                    data: { id, LeaveName, chkBalance, Salary_Coeffiecient, chkPay, YearLeaveAllow, AllowTakeLeave, MaxLeave },
+                    success: function (result) {
+                        $("#list_leavetype tr").remove();
+                        var arrdata = JsonArraySpliter(result);
+                        for (var i = 0; i < arrdata.length; i++) {
+                            if (arrdata[i].countLeaveBalance == 1) {
+                                a = "Yes";
+                            }
+                            else {
+                                a = "No";
+                            }
+                            if (arrdata[i].payNeverAbsent == 1) {
+                                b = "Yes";
+                            }
+                            else {
+                                b = "No";
+                            }
+                            $("#list_leavetype").append("<tr data-lid='" + arrdata[i].leaveID + "'" +
+                                                    "data-lname='" + arrdata[i].leaveName + "'" +
+                                                    "data-lbalance='" + arrdata[i].countLeaveBalance + "'" +
+                                                    "data-scoefficient='" + arrdata[i].salaryCoefficient + "'" +
+                                                    "data-paynoabsent='" + arrdata[i].payNeverAbsent + "'" +
+                                                    "data-yearlallow='" + arrdata[i].yearlyLeaveAllow + "'" +
+                                                    "data-allowtakeleave='" + arrdata[i].allowTakeLeave + "'" +
+                                                    "data-duration='" + arrdata[i].duration + "'" +
+
+                                             "><td style='display:none'>" + arrdata[i].leaveID +
+                                                            "<td>" + arrdata[i].leaveName + "</td>" +
+                                                            "<td>" + a + "</td>" +
+                                                            "<td>" + arrdata[i].salaryCoefficient + "</td>" +
+                                                            "<td>" + b + "</td>" +
+                                                            "<td>" + arrdata[i].yearlyLeaveAllow + "</td>" +
+                                                            "<td>" + arrdata[i].allowTakeLeave + "</td>" +
+                                                            "<td>" + arrdata[i].duration + "</td>" +
+                                                    "</td></tr>");
+                        }
+                        Clear_Input();
+                        Disabled_Input();
+                        Disabled_Button();
+                        $("#btnEdit").val(1);
+                        $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>', ' Edit (F3)');
+                        $("#btnDelete").prop("disabled", true);
+                        $("#btnEdit").prop("disabled", true);
+                        $("#list_leavetype tr").prop("disabled", false);
+                        $("#btnNew").prop("disabled", false);
+                        $("#btnExit").prop("disabled", false);
+                    }
+                });
+           }
+        });
+        $("#btnCancel").click(function () {
+            Clear_Input();
+            Disabled_Input();
+            $("#btnExit").prop("disabled", false);
+            $("#btnNew").prop("disabled", false);
+            $("#btnNew").val(1);
+            $("#btnNew").text('').append('<i class="glyphicon glyphicon-file"></i>', ' New (F2)');
+            $("#btnEdit").prop("disabled", true);
+            $("#btnEdit").val(1);
+            $("#btnEdit").text('').append('<i class="glyphicon glyphicon-edit"></i>', ' Edit (F3)');
+            $("#btnDelete").prop("disabled", true);
+            $("#list_leavetype tr").prop("disabled", false);
+            $('#list_leavetype tr').css("background-color", "transparent");
+        });
+        $("#btnRefresh").click(function () {
+            location.reload();
+        });
+        $("#Exit").click(function () {
+            var url = '@Url.Action("index", "Home")';
+            window.location.href = url;
+        });
+        $("#Delete").click(function () {
+            var id = $(this).data("lid");
+            $.ajax({
+                url: "/Company/delete_LeaveType",
+                datatype: "JSON",
+                type: "POST",
+                data: { id },
+                success: function (result) {
+                    DeleteRowbyColumnValue($("#list_leavetype tr"), 0, id);
+                    Clear_Input();
+                    $("#btnDelete").prop("disabled", true);
+                    $("#btnEdit").prop("disabled", true);
+                    $("#btnExit").prop("disabled", false);
+                    $("#btnNew").prop("disabled", false);
+                }
+            });
+        });
+    });
+</script>
